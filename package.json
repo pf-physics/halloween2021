@@ -1,23 +1,23 @@
 {
-  "name": "Halloween2020",
-  "hompeage": "https://pf-physics.github.io/Halloween2020",
+  "name": "halloween2020",
+  "hompeage": "https://pf-physics.github.io/halloween2020",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
     "cra-template": "1.0.3",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.3"
   },
-
-"scripts": { 
- "start": "react-scripts start",
- "predeploy": "npm run build",
- "deploy": "gh-pages -d build",
- "build": "react-scripts build",
- "test": "react-scripts test",
- "eject": "react-scripts eject"
-},
+  "scripts": {
+    "start": "react-scripts start",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
   "eslintConfig": {
     "extends": "react-app"
   },
