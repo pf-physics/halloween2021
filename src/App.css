@@ -1,5 +1,17 @@
 .App {
   text-align: center;
+  color: orange;
+  background-color:black;
+
+  .ui.input {
+    background: red;
+    color: orange;
+  }
+}
+
+.body {
+  text-align: center;
+  background-color:blue;
 }
 
 .App-logo {

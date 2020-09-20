@@ -6,18 +6,20 @@ import {
   Route,
   Link
 } from "react-router-dom";
-
 import './index.css';
 import App from './App';
+import Test from './Components/Test';
+import Intro from './Components/Intro';
 import * as serviceWorker from './serviceWorker';
 
+//basename={window.location.pathname || ''}
 ReactDOM.render(
   <React.StrictMode>
-  <BrowserRouter basename={window.location.pathname || ''}>
-  <Route exact path="/" component={App} />
+  <BrowserRouter>
+      <App />
+	  <Route exact path="/" component={Intro} />
+	  <Route exact path="/test" component={Test} />
   </BrowserRouter>
-  {console.log("hello???")}
-    <App />
   </React.StrictMode>,
   document.getElementById('root')
 );
