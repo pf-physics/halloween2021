@@ -1,0 +1,64 @@
+/*******************************
+         Site Overrides
+*******************************/
+@primaryColor: #FF8000;
+@pageBackground: black;
+
+img {
+	padding:10px;
+	height:100%;
+	width:100%;
+	border-radius: 25px;
+}
+
+.body {
+  .ui.img {
+    height:100%;
+    width:100%;
+  }
+
+}
+
+.orange{
+  color:@pumpkin;
+}
+
+.Center{
+	position:absolute;
+	left:0;
+	right:0;
+}
+
+
+	input {
+	width:100%;
+	}
+.ui.input.answer {
+	input {
+		  font-size: 20px;
+		  width: 100%;
+		  height: 50px;
+		  margin-right: 10px;
+		  margin-left: 10px;
+		  color:black;
+		  background: transparent;
+		  border: 3px;
+		  box-shadow: 1px 1px 1px 3px #000000;
+		}
+		input:focus {
+			background: transparent;
+			color:white;
+		  	opacity:0.7;
+			border: 3px;
+			box-shadow: 1px 1px 1px 3px #000000;
+
+			::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+			  	color: white;
+			  	opacity:0.7;
+				border: 3px;
+
+			}
+
+
+		}
+}

@@ -1,17 +1,27 @@
 .App {
   text-align: center;
   color: orange;
-  background-color:black;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width:100%;
 
-  .ui.input {
-    background: red;
-    color: orange;
+}
+
+
+.ui.input.answer {
+  input {
+    width: 100px;
+    margin-right: 10px;
+    margin-left: 10px;
+    height:30px;
+    color:red;
+    background-color: transparent;
   }
 }
 
 .body {
-  text-align: center;
-  background-color:blue;
+
 }
 
 .App-logo {
