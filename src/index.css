@@ -1,3 +1,12 @@
+@font-face {
+  font-family: 'murderer';
+  src:  url('youmurdererbb_reg.ttf') format('opentype');
+}
+
+  .darkText {
+  	font-family: 'murderer', 'Oxygen', sans-serif;
+  }
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -6,6 +15,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   height: 100%;
+
 }
 
 code {
@@ -21,10 +31,6 @@ html{
 	font: Tahoma;
 	border-radius: 25px;
 	margin:50px;
-
-	.column{
-		
-	}
 
 	p {
 		font:Tahoma;

@@ -3,7 +3,7 @@ import { Button, Image, Divider, Grid, Input } from 'semantic-ui-react'
 import { Redirect } from "react-router-dom";
 import { sceneList } from "../index"
 
-const Test = ({ color, dialogue, sceneIndex, image, name }) => {
+const MonsterPanel = ({ color, dialogue, sceneIndex, image, name }) => {
 
     const findNextScene = () => {
         if (sceneIndex) return sceneIndex
@@ -86,4 +86,4 @@ const Test = ({ color, dialogue, sceneIndex, image, name }) => {
       </Card.Content>
     </Card> */
 
-export default Test;
+export default MonsterPanel;

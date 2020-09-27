@@ -8,12 +8,11 @@
 
 }
 
-
-.ui.input.answer {
+.ui.input.old {
   input {
     width: 100px;
-    margin-right: 10px;
-    margin-left: 10px;
+    margin-right: 0px;
+    margin-left: 0px;
     height:30px;
     color:red;
     background-color: transparent;
