@@ -3,7 +3,8 @@ import { Button, Image, Divider, Grid, Input } from 'semantic-ui-react'
 import { Redirect } from "react-router-dom";
 import { sceneList } from "../index"
 
-const MonsterPanel = ({ color, dialogue, sceneIndex, image, name }) => {
+// TODO - back button
+const MonsterPanel = ({ color, dialogue, sceneIndex, image, name, code }) => {
 
     const findNextScene = () => {
         if (sceneIndex) return sceneIndex
@@ -52,7 +53,7 @@ const MonsterPanel = ({ color, dialogue, sceneIndex, image, name }) => {
             </Grid.Column>
 
             <Grid.Row textAlign="center" >
-                <Grid.Column textAlign="center" width="100">
+                <Grid.Column textAlign="center" width="100%">
                     <div width="100%" style={{ textAlign: "right", paddingRight: "20px", paddingLeft: "20px" }}>
                     {input && <Input className="answer" onChange={(e) => setAns(e.target.value)} style={{ width:"100%" }} placeholder={"Write answer"} />}
                     </div>
