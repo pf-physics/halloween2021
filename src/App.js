@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import './App.css';
-import { Button, Dropdown, Menu, Transition, Dimmer, Modal, Divider, Input } from 'semantic-ui-react'
+import { Button, Dropdown, Menu, Transition, Dimmer, Modal, Divider, Input, Icon } from 'semantic-ui-react'
 import { Link } from "react-router-dom";
 
 const InfoModal = ({title, content}) => {
@@ -13,11 +13,14 @@ const InfoModal = ({title, content}) => {
       open={open}
       trigger={<div style={{ backgroundColor:"black", color:"white", padding:"10px"}} height="100%" width="100%">{title}</div>}
     >
+    <Icon style={{color:'white'}} name='close' onClick={()=>setOpen(false)}/>
       <Modal.Header style={{ textAlign:"center", backgroundColor:"black", color:"white"}}>{title}</Modal.Header>
       <Modal.Content style={{paddingBottom:"10xp", backgroundColor:"black", color:"white"}}>
+      <div className="modalText">
       {content}
       <p style={{color:"grey", marginTop:"10px"}}>Certain ablilities are not always applicable. (When in doubt, please ask!) If you make a mistake, a mysterious power will right things.</p>
       <p style={{color:"grey"}}> Remember to keep your abilities secret from the other team before you use them! </p>
+      </div>
       </Modal.Content>
     </Modal>
 }
@@ -84,9 +87,11 @@ const CodeModal = ({setCode, open}) => {
     </Modal>
 }
 
+
+export const undeadCode = "undead123"
+export const magicCode = "magic123"
+
 const App = ({getCode}) => {
-  const undeadCode = "undead123"
-  const mysticCode = "magic123"
 
   const [open, setopen] = useState(false)
   const [modalOpen, setModalOpen] = useState(true)
@@ -96,18 +101,18 @@ const App = ({getCode}) => {
   const toggleMenu = () => setopen(!open)
   const closeMenu = () =>  setopen(false)
 
-  const menuItems = code === undeadCode ? Undead : code === mysticCode ? Magic : []
+  const menuItems = code === undeadCode ? Undead : code === magicCode ? Magic : []
 
   const handleCode = (code) => {
   	setCode(code)
   	if (code === undeadCode) {
   		setUndead(true)
-  		getCode("undead")
+  		getCode(undeadCode)
   		setModalOpen(false)
   	}
-  	if (code === mysticCode) {
+  	if (code === magicCode) {
   		setUndead(false)
-  		getCode("magic")
+  		getCode(magicCode)
   		setModalOpen(false)
   	}
   }

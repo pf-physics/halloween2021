@@ -23,6 +23,10 @@
   box-shadow: 1px 3px 3px 0px rgba(0, 0, 0, 0.2), 1px 3px 15px 2px rgba(255,255,255,0.6);
 }
 
+.glow {
+  box-shadow: 1px 3px 3px 0px rgba(0, 0, 0, 0.2), 1px 3px 15px 2px rgba(255,255,255,0.6);
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -33,6 +37,19 @@
     animation: App-logo-spin infinite 20s linear;
   }
 }
+
+/* THIS IS WHERE IT WORKS */
+/*'Clownoween'*/
+.modalText {
+    font-family: 'Segoe UI', 'Oxygen', sans-serif;
+    font-size: 18px;
+  }
+
+.intro {
+    font-family: 'Clownoween','Segoe UI', 'Oxygen', sans-serif;
+    font-size: 30px;
+
+  }
 
 .App-header {
   background-color: #282c34;

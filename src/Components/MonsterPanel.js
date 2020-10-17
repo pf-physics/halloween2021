@@ -4,7 +4,11 @@ import { Redirect } from "react-router-dom";
 import { sceneList } from "../index"
 
 // TODO - back button
-const MonsterPanel = ({ color, dialogue, sceneIndex, image, name, code }) => {
+// ...music...
+const MonsterPanel = ({ color, dialogue, sceneIndex,
+    image="",
+    music="",
+    name, code }) => {
 
     const findNextScene = () => {
         if (sceneIndex) return sceneIndex
@@ -18,6 +22,17 @@ const MonsterPanel = ({ color, dialogue, sceneIndex, image, name, code }) => {
 
     const [index, setIndex] = useState(0)
     const [redirect, setRedirect] = useState(false)
+
+    const handleBack = () => {
+        if (index >= 1) {
+            setIndex(index-1)
+            if (input) {
+                setInput(false)
+            }
+        }
+    }
+
+    console.log(nextScene)
 
     const handleClick = () => {
 
@@ -40,14 +55,22 @@ const MonsterPanel = ({ color, dialogue, sceneIndex, image, name, code }) => {
         }
     }
 
+    const Words = dialogue[index].text
+    const isObject = dialogue[index].isObject
+
+    console.log(color)
     return (<div style={{ margin: "10px" }} className="Center">
-        <Grid className="dialogue" columns="2" style={{ backgroundColor: color }} stackable>
+                <audio className="audio-element">
+          <source src="https://assets.coderrocketfuel.com/pomodoro-times-up.mp3"></source>
+        </audio>
+        <Grid className="dialogue glow" columns="2" style={{ backgroundColor: color }} stackable>
             <Grid.Column style={{ width:"300px", overflow: "hidden"}}>
-                    <Image size="small" src='https://64.media.tumblr.com/21697b9bdde288c814fd0aab7211bd03/9d79f4b579da3f7a-10/s1280x1920/63ae306f7ede934935bc7447b6e818c3670617f5.jpg' wrapped ui={false} />
+                    <Image size="small" src={image} wrapped ui={false} />
           </Grid.Column>
           <Grid.Column width="12" verticalAlign="middle" textAlign="left">
                 <div style={{ color: "white", fontWeight: "bold", fontSize: "Large" }}>
-                    <p>{dialogue[index].text}</p>
+                    <p><center><u>{dialogue[index].title}</u></center></p>
+                    <p>{isObject ? <Words/> : Words}</p>
                 </div>
                 <Divider hidden />
             </Grid.Column>
@@ -55,20 +78,21 @@ const MonsterPanel = ({ color, dialogue, sceneIndex, image, name, code }) => {
             <Grid.Row textAlign="center" >
                 <Grid.Column textAlign="center" width="100%">
                     <div width="100%" style={{ textAlign: "right", paddingRight: "20px", paddingLeft: "20px" }}>
-                    {input && <Input className="answer" onChange={(e) => setAns(e.target.value)} style={{ width:"100%" }} placeholder={"Write answer"} />}
+                    {input && <Input className={color=="#000000" ? "white" : "answer"} onChange={(e) => setAns(e.target.value.toLowerCase())} style={{ width:"100%"}} placeholder={"Write answer"} />}
                     </div>
                 </Grid.Column>
             </Grid.Row>
-
+                    <Divider hidden/>
             <Grid.Row>
-                <Grid.Column></Grid.Column>
                 <Grid.Column>
-                    <div width="100%" style={{ textAlign: "right", marginTop: "-30px", paddingRight: "20px", paddingLeft: "20px" }}>
                         <Button style={{width:"100%", height:"50px"}} color="black" size="large" inverted onClick={handleClick}> Next </Button>
-                    </div>
+                </Grid.Column>
+                <Grid.Column style={{width:"50%"}}>
+                        <Button style={{width:"100%", height:"50px"}} color="black" size="large" inverted onClick={handleBack}> Back </Button>
                 </Grid.Column>
             </Grid.Row>
         </Grid>
+        <iframe style={{opacity:0}} width="560" height="315" src={music + "?autoplay=1"} frameborder="0" allow="accelerometer; autoplay={1}; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         {redirect && <Redirect to={sceneList[nextScene].path} />}
     </div>
   );

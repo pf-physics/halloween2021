@@ -8,6 +8,10 @@
   src:  url('PhantomFingers.ttf') format('opentype');
 }
 
+@font-face {
+  font-family: 'Clownoween';
+  src: url('Clownoween.ttf') format('opentype');
+}
   .darkText {
   	font-family: 'murderer', 'Oxygen', sans-serif;
   }
@@ -18,15 +22,20 @@
 
 body {
   margin: 0;
-  font-family: 'phantom', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  font-family: 'Segoe UI', 'phantom', -apple-system, BlinkMacSystemFont, 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   height: 100%;
+  font-size: 18px;
+
+  .header {
+    font-family: 'murderer', 'Oxygen', sans-serif;
+  }
 
   h1 {
-  	font-family: 'murderer', 'Oxygen', sans-serif;
+  	font-family: 'Segoe UI';
   }
 
 }

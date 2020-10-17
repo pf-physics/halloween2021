@@ -11,6 +11,15 @@ img {
 	border-radius: 25px;
 }
 
+  h1 {
+    font-family: 'Clownoween','Segoe UI', 'Oxygen', sans-serif;
+    font-size:50px;
+  }
+  h2 {
+    font-family: 'Clownoween','Segoe UI', 'Oxygen', sans-serif;
+      font-size:30px;
+  }
+
 .body {
   .ui.img {
     height:100%;
@@ -29,10 +38,10 @@ img {
 	right:0;
 }
 
-
 	input {
 	width:100%;
 	}
+
 .ui.input.answer {
 	input {
 		  font-size: 20px;
@@ -43,6 +52,7 @@ img {
 		  border: 3px;
 		  box-shadow: 1px 1px 1px 3px #000000;
 		}
+
 		input:focus {
 			background: transparent;
 			color:white;

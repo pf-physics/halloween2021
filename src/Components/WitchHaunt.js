@@ -15,7 +15,7 @@ const WitchHaunt = ({ color="purple", sceneIndex, image="https://i.etsystatic.co
         return sceneList.indexOf(sceneList.filter(x => x.name === name).pop()) + 1
     }
 
-    const dialogue = [{text:"Hey frenz"},{text:"Things are crazy"},{text:"But it's gonne be okay!"},{text:"Here's what you have to do: first you have to find a lamp.", fade:true}, {text:"", end:true}]
+    const dialogue = [{text:"Hello again dearies! Good job in finding the candles."},{text:"In the mean time, I was able to find the location of their lair! Luckily I hid the map under my table!"},{text:"Once you're in the lair, you'll be able to get the moonstones back. But you have to be very careful!"}, {text:"Here's what you have to do: First you have to find some glow wands.", fade:true}, {text:"", end:true}]
 
     const darkImg = "https://upload.wikimedia.org/wikipedia/commons/6/6c/Black_photo.jpg"
 
@@ -33,6 +33,8 @@ const WitchHaunt = ({ color="purple", sceneIndex, image="https://i.etsystatic.co
 
     const [vis, setVis] = useState(true)
     const [pIn, setpIn] = useState(0)
+
+    const [music, setMusic] = useState("")
 
     const [darkText, setDarkText] = useState("")
 
@@ -94,10 +96,12 @@ const WitchHaunt = ({ color="purple", sceneIndex, image="https://i.etsystatic.co
         const nextWord = () => {
             setDarkText(dark[idx+1])
             setIndex(dialogue.length-1)
+            window.scrollTo(0,0)
+            setMusic("https://www.youtube.com/watch?v=TxMWTSVd64w")
        }
 
         if (!vis && pIn >= panic.length && idx < dark.length) {
-            setTimeout(nextWord, 5000)
+            setTimeout(nextWord, 2500)
         }
 
         if (!vis && idx >= dark.length-1) {
@@ -107,6 +111,8 @@ const WitchHaunt = ({ color="purple", sceneIndex, image="https://i.etsystatic.co
 
     DisplayDark()
 
+//         <iframe style={{opacity:0}} width="560" height="315" src={"https://www.youtube.com/watch?v=l31Ir9WPhiI?autoplay=1"} frameborder="0" allow="accelerometer; autoplay={1}; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+//        {!vis && music && <iframe style={{opacity:0}} width="560" height="315" src={"https://www.youtube.com/watch?v=TxMWTSVd64w?autoplay=1"} frameborder="0" allow="accelerometer; autoplay={1}; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>}
     return (<div style={{ margin: "10px" }} className="Center">
         {!vis && <div className="darkText" style={{color:"red", lineHeight:"100px", textAlign:"center", fontSize:"100px"}}>{darkText}</div>}
         <Transition visible={vis} animation='fade' duration={10000}>
