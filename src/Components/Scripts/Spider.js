@@ -19,7 +19,7 @@ const Rules1 = () => <>
 const Rules2 = () => <>
 	<h1>RULES: Dissect the eggs!</h1>
 	<p>Each pick an egg from the spider and cut it open with a knife. Extract the paper from it. If the paper you retrieve is blank, take four sips</p>
-	<p>Input the code when you're when you're done</p>
+	<p>Input the secret code when you're done</p>
 </>
 
 const dialogue = (code) => [
@@ -30,8 +30,8 @@ const dialogue = (code) => [
 	{text: "Make no mistake, I have enough venom to kill you with one bite, then I'll have a meal for the next week."},
 	{text: "Unless one of you wants to be a sacrifice, I suggest you start feeding."},
 	{text: Rules1, isObject: true, input:"next"},
-	{text: Rules2, isObject: true, input:"tamago"},
-	{text: "You found the ritual? Good. I suggest you find whatever you can on that list, then go talk to the witch when you need help.", input:"darkness"}
+	{text: Rules2, isObject: true, input:"death"},
+	{text: "You found the ritual? Good. I suggest you find whatever you can on that list, then go talk to the witch when you need help.", input:"fear dark"}
 	]
 
 export default dialogue

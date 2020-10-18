@@ -9,6 +9,11 @@
 }
 
 @font-face {
+  font-family: 'scarycandy';
+  src:  url('ScaryCandy.otf') format('opentype');
+}
+
+@font-face {
   font-family: 'Clownoween';
   src: url('Clownoween.ttf') format('opentype');
 }
@@ -20,9 +25,11 @@
   	font-family: 'phantom', 'Oxygen', sans-serif;
   }
 
+
 body {
+  .Center{
   margin: 0;
-  font-family: 'Segoe UI', 'phantom', -apple-system, BlinkMacSystemFont, 'Roboto', 'Oxygen',
+  font-family: 'scarycandy', 'phantom', -apple-system, BlinkMacSystemFont, 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -37,6 +44,7 @@ body {
   h1 {
   	font-family: 'Segoe UI';
   }
+}
 
 }
 

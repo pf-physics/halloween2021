@@ -7,6 +7,7 @@ const Rules1 = () => <>
 	<p>It's a relay race. Start on the left. The first two drink their cup and attemp to flip their cups onto the table. When they succeed, the next person in the row can go.</p>
 	<p>If one team has fewer members, someone on the other team must drink twice.</p>
 	<p>Remember the epitaph on your cup!</p>
+	<p>The winning team gets 50 points!</p>
 	<h2>Advantage: Skeletons</h2>
 	<p>Only pour one scoop into the cup.</p>
 	<h2>Disadvantage: Vampires</h2>
@@ -35,22 +36,13 @@ const dialogue = (code) => [
 	{text: "Sorry for the unruly state of the graveyard. Someone upturned the graves (I bet it was some of those werewolf pups)."},
 	{text: "For your first task, you might as well help me fix this!"},
 	{text: Rules1, isObject: true, input:"next"},
-	{text: "The winning team gets 50 points!"},
 	{text: "It looks much better now!"},
-	{text: "But some witch or wizard has been throwing their garbage around here! Someone oughta pick it up!", input:"darkness"},
+	{text: "But some witch or wizard has been throwing their garbage around here! Someone oughta pick it up!", input:"night"},
 	{text: "Alright, on to the next task! This task was designed by the headless horseman."},
 	{text: Rules2, isObject: true, input:"next"},
 	{text: "That was a riot! You better be careful. It's not too late to lose your real heads..."},
 	{text: "Next is the vampire! Have fun!"},
 	{text: "Write 'next' when you're ready", input:"next"}
 	]
-
-
-const afterSpider = (code) => [
-{text: "What are you lot doing over there?"},
-{text: "Moon stealing ritual? We have to stop them! What do we need to reverse the ritual?"},
-{text: "Looks like we need some candles! When you've found them, go talk to the witch!"},
-{text: "Enter the secret code", input:"evil"},
-]
 
 export default dialogue

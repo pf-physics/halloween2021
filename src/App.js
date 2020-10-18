@@ -11,10 +11,10 @@ const InfoModal = ({title, content}) => {
       onClose={() => setOpen(false)}
       onOpen={() => setOpen(true)}
       open={open}
-      trigger={<div style={{ backgroundColor:"black", color:"white", padding:"10px"}} height="100%" width="100%">{title}</div>}
+      trigger={<div className="dropdownTitle" style={{ backgroundColor:"black", color:"white", padding:"10px"}} height="100%" width="100%">{title}</div>}
     >
     <Icon style={{color:'white'}} name='close' onClick={()=>setOpen(false)}/>
-      <Modal.Header style={{ textAlign:"center", backgroundColor:"black", color:"white"}}>{title}</Modal.Header>
+      <Modal.Header style={{ textAlign:"center", backgroundColor:"black", color:"white"}}><div className="modalTitle">{title}</div></Modal.Header>
       <Modal.Content style={{paddingBottom:"10xp", backgroundColor:"black", color:"white"}}>
       <div className="modalText">
       {content}
@@ -78,7 +78,7 @@ const CodeModal = ({setCode, open}) => {
 	  centered={false}
       open={open}
     >
-      <Modal.Header style={{ textAlign:"center", backgroundColor:"black", color:"white"}}>Input Identity Code</Modal.Header>
+      <Modal.Header style={{ textAlign:"center", letterSpacing:"1px", fontFamily:"scaryCandy", fontSize:"30px", backgroundColor:"black", color:"white"}}>Input Identity Code</Modal.Header>
       <Modal.Content style={{paddingBottom:"10xp", backgroundColor:"black", color:"white"}}>
         <div style={{textAlign:"center"}}><Input className="white" onChange={onChange} placeholder='Input Code' /></div>
         <Divider hidden style={{marginTop:"-3px"}}/>
@@ -118,7 +118,7 @@ const App = ({getCode}) => {
   }
 
   return (
-    <div className="App">
+    <div className="Everything">
       <header>
       <CodeModal open={modalOpen} setCode={handleCode}/>
 		<Menu secondary style={{ marginTop: 0, marginBottom: 0 }}>

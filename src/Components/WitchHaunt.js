@@ -15,7 +15,7 @@ const WitchHaunt = ({ color="purple", sceneIndex, image="https://i.etsystatic.co
         return sceneList.indexOf(sceneList.filter(x => x.name === name).pop()) + 1
     }
 
-    const dialogue = [{text:"Hello again dearies! Good job in finding the candles."},{text:"In the mean time, I was able to find the location of their lair! Luckily I hid the map under my table!"},{text:"Once you're in the lair, you'll be able to get the moonstones back. But you have to be very careful!"}, {text:"Here's what you have to do: First you have to find some glow wands.", fade:true}, {text:"", end:true}]
+    const dialogue = [{text:"Hello again dearies! Good job in finding the candles."},{text:"I was able to find the location of their lair! I've hidden it under my table!"},{text:"Once you're in the lair, you'll be able to get the moonstones back. But you have to be very careful!"}, {text:"Here's what you have to do: First you have to find some glow wands.", fade:true}, {text:"", end:true}]
 
     const darkImg = "https://upload.wikimedia.org/wikipedia/commons/6/6c/Black_photo.jpg"
 

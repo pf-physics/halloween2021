@@ -5,7 +5,7 @@ const Rules1 = () => <>
 	<h2>RULES: Trick or Treat!</h2>
 	<p> Choose a creature on the list. You have to go trick or treating until you find them! </p>
 	<p> Drink every time you open a door and the wrong creature is there. When you find your creature, drink the number of sips on the creature. </p>
-	<p> You get five points if you find them in three tries. </p>
+	<p> You get five points if you find them within three tries. </p>
 	<p> Rearrange the creatures after your turn. </p>
 	<h3>Advantage: Ghosts</h3>
 	<p>They get one extra try</p>

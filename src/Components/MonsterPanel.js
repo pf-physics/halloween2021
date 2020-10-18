@@ -68,7 +68,7 @@ const MonsterPanel = ({ color, dialogue, sceneIndex,
                     <Image size="small" src={image} wrapped ui={false} />
           </Grid.Column>
           <Grid.Column width="12" verticalAlign="middle" textAlign="left">
-                <div style={{ color: "white", fontWeight: "bold", fontSize: "Large" }}>
+                <div className="dialogueText" style={{ color: "white" }}>
                     <p><center><u>{dialogue[index].title}</u></center></p>
                     <p>{isObject ? <Words/> : Words}</p>
                 </div>
@@ -84,11 +84,11 @@ const MonsterPanel = ({ color, dialogue, sceneIndex,
             </Grid.Row>
                     <Divider hidden/>
             <Grid.Row>
-                <Grid.Column>
-                        <Button style={{width:"100%", height:"50px"}} color="black" size="large" inverted onClick={handleClick}> Next </Button>
-                </Grid.Column>
                 <Grid.Column style={{width:"50%"}}>
-                        <Button style={{width:"100%", height:"50px"}} color="black" size="large" inverted onClick={handleBack}> Back </Button>
+                        <Button className="spookButton" style={{width:"100%", height:"50px"}} color="black" size="large" inverted onClick={handleBack}> Back </Button>
+                </Grid.Column>
+                <Grid.Column>
+                        <Button className="spookButton" style={{width:"100%", height:"50px"}} color="black" size="large" inverted onClick={handleClick}> Next </Button>
                 </Grid.Column>
             </Grid.Row>
         </Grid>

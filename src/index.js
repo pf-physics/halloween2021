@@ -20,7 +20,7 @@ import darkImg from './resources/black.jpg'
 import moon from './resources/moon.jpg'
 import spider from './resources/spider6.jpg'
 
-const paths = {begin: "/begin", witch:"/witch", skeleton:"/skeleton", ghost: "/ghost", purple:"/test1", orange:"/test2", witchHaunt:"/witch2", zombie: "/zombie", werewolf: "/werewolf", vampire:"/vampire", ghost:"/ghost", middle1:"/middle1", spider:"/spider", stoneQuest:"/stonequest"}
+const paths = {begin: "/#begin", witch:"/#witch", skeleton:"/#skeleton", ghost: "/#ghost", witchHaunt:"/#witch2", zombie: "/#zombie", werewolf: "/#werewolf", vampire:"/#vampire", ghost:"/#ghost", middle1:"/#middle1", spider:"/#spider", stoneQuest:"/#stonequest"}
 
 const d = [{text:'Heeeeeeeeeey its HALLOWEEEEEEEEEEEEEEN', input:"potato"}, {text:"halloweenoweenoweeeen"}, {text:"SKELETONS", input:"test"}, {text:"k bye"}]
 const d2 = [{text:'ITS SPOOKS TIME'}, {text:"ORANGE PUMPKINS!!"}, {text:"SKELETONS"}, {text:"THE END"}]
@@ -79,8 +79,9 @@ export const sceneList = [
 const RenderRoutes = () => {
   const [code, getCode] = useState("")
 
+const basename = "halloween2020"
 return <React.StrictMode>
-  <BrowserRouter className="App" basename={"halloween2020"}>
+  <BrowserRouter className="App" basename={basename}>
     <App getCode={getCode}/>
     <Route exact path="/" component={Intro} />
     <Route exact path={paths.witch} component={Witch(code)} />
@@ -103,6 +104,8 @@ ReactDOM.render(
   <RenderRoutes/>,
   document.getElementById('root')
 );
+
+console.log(window.location.pathname.split(',').slice(0,-1))
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

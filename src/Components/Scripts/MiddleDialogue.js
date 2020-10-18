@@ -39,6 +39,17 @@ const Rules3 = () => <>
 	<p> Write 'waves' when you are done.</p>
 	</>
 
+const Rules4 = () => <>
+	<h2>RULES: Moon Restoration Spell! </h2>
+	<p> Take the charged moon wands and head outside with the bowl. </p>
+	<p> Use the moon wands to spell the word. (Don't forget the incantation.) </p>
+	<p> One team goes at a time, the other team will use a phone to take a long exposure picture. </p>
+	<p> The werewolf team will choose which half of the word their team will do. </p>
+	<p> If its possible, you can try to take a long exposure timed photo with everyone. </p>
+	<p> 10 points to whichever looks better. </p>
+	<p> Write 'moon' when you are done.</p>
+	</>
+
 export const DialogueAfterGhost = (code) => [
 	{text:"The council is very impressed by your accomplishments."},
 	{text:"They are currently t̴͓̮̠͇̹͉̯̱̣͚̳̲̭͌̓̂ͅa̸̡̛̺͇͛̃̇́͘ĺ̷̪̪͍͔͉̞̦̤̓̿͒͊̂̋̅̽̌́́̆ỹ̶̧͔͍̣̻̟̯́̊̈́̑̔́̒̀̽͐͜ȉ̷̱̀͋̓́̃̈̈́̓͘̚͝n̴̤̼̯̱̼̅̍̿́̀͌̑̏̅͝ͅg̸̡̧̺͇̉̒̐͂͑̋́͌̍̽̈̾̾̋̒ ̴̬̮̄̂̄͊̓͛͆̄̕͝t̵̛͙̟̠̾͑̑̒́̓͌͐̊̑̅̾͝h̸͉͙͍̬̙͕͔̳̅è̷̠̤̭͆͋̓͂̈́̓̒͘͝͝ ̴͚͆͑̈́͆͂͊̂͂̃͘̚r̴̠͇͕̹̤̫͚̻̟̘͗͑̇̆̃͑̈́͛͗̅̅͘̕͜͠͠ę̶̩͖̗͇̍̏͐̉͘͜s̶͍̤̪̣̤̦̪̟̙͍͍͇̀͐̈̍͑ͅͅú̷̧̼̠̠͕͓̻͙̖͈̘͍̳̞̆͗l̷̫͕̽̐̓̏͑̏͐̆͘͜͝͠ͅͅt̵̢̘̮̬̐̐͒͑̆̾̈́̌̆̀͗́ṣ̷̢̛̗̗̣̒̈́̇͊̑̅̓̉̇̃̋̏̚͜͠"},
@@ -53,7 +64,10 @@ export const StoneQuest = (code) => [
 	{text:"Look for clues...", input:"danger666"},
 	{text:Rules1, isObject:true, input:"next"},
 	{text:Rules2, isObject:true, input:"stone"},
-	{text:Rules3, isObject:true, input:"waves"}
+	{text:Rules3, isObject:true, input:"waves"},
+	{text:"You now have all the ingredients to do the ritual. Head back to the witch's room and follow the instructions until the moon restoration spell. Then input the code", input:"6ween6"},
+	{text:Rules4, isObject:true, input:"moon"},
+	{text:"The werewolf pack leader now has one more task to complete. Input what is it once you have witnessed it", input:"firework"}
 	]
 
 export default DialogueAfterGhost

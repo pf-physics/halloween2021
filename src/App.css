@@ -8,6 +8,16 @@
 
 }
 
+.Everything {
+  text-align: center;
+  color: orange;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width:100%;
+
+}
+
 .ui.input.old {
   input {
     width: 100px;
@@ -27,6 +37,19 @@
   box-shadow: 1px 3px 3px 0px rgba(0, 0, 0, 0.2), 1px 3px 15px 2px rgba(255,255,255,0.6);
 }
 
+
+.dialogueText {
+  font-family: 'scarycandy';
+  font-size:30px;
+  letter-spacing: 1px;
+}
+/*
+.ui.input.spookInput > input{
+  font-family: 'phantom';
+  font-size:5px;
+}
+*/
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -41,14 +64,26 @@
 /* THIS IS WHERE IT WORKS */
 /*'Clownoween'*/
 .modalText {
-    font-family: 'Segoe UI', 'Oxygen', sans-serif;
-    font-size: 18px;
+    font-family: 'scarycandy','Segoe UI', 'Oxygen', sans-serif;
+    font-size: 30px;
+    letter-spacing: 1px;
   }
 
 .intro {
     font-family: 'Clownoween','Segoe UI', 'Oxygen', sans-serif;
     font-size: 30px;
 
+  }
+
+  .dropdownTitle {
+    font-family: 'Clownoween','Segoe UI', 'Oxygen', sans-serif;
+    font-size: 30px;
+  }
+
+  .modalTitle {
+     font-family: 'Clownoween','Segoe UI', 'Oxygen', sans-serif;
+    font-size: 50px;
+    padding-top: 15px;
   }
 
 .App-header {
