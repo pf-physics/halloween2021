@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import {
   BrowserRouter,
   Route,
+  HashRouter
 } from "react-router-dom";
 import './index.css';
 import App from './App';
@@ -20,7 +21,7 @@ import darkImg from './resources/black.jpg'
 import moon from './resources/moon.jpg'
 import spider from './resources/spider6.jpg'
 
-const paths = {begin: "/#begin", witch:"/#witch", skeleton:"/#skeleton", ghost: "/#ghost", witchHaunt:"/#witch2", zombie: "/#zombie", werewolf: "/#werewolf", vampire:"/#vampire", ghost:"/#ghost", middle1:"/#middle1", spider:"/#spider", stoneQuest:"/#stonequest"}
+const paths = {begin: "/begin", witch:"/witch", skeleton:"/skeleton", ghost: "/ghost", witchHaunt:"/witch2", zombie: "/zombie", werewolf: "/werewolf", vampire:"/vampire", ghost:"/ghost", middle1:"/middle1", spider:"/spider", stoneQuest:"/stonequest"}
 
 const d = [{text:'Heeeeeeeeeey its HALLOWEEEEEEEEEEEEEEN', input:"potato"}, {text:"halloweenoweenoweeeen"}, {text:"SKELETONS", input:"test"}, {text:"k bye"}]
 const d2 = [{text:'ITS SPOOKS TIME'}, {text:"ORANGE PUMPKINS!!"}, {text:"SKELETONS"}, {text:"THE END"}]
@@ -81,7 +82,7 @@ const RenderRoutes = () => {
 
 const basename = "halloween2020"
 return <React.StrictMode>
-  <BrowserRouter className="App" basename={basename}>
+  <HashRouter className="App">
     <App getCode={getCode}/>
     <Route exact path="/" component={Intro} />
     <Route exact path={paths.witch} component={Witch(code)} />
@@ -95,7 +96,7 @@ return <React.StrictMode>
     <Route exact path={paths.begin} component={Begin(code)} />
     <Route exact path={paths.spider} component={Spider(code)} />
     <Route exact path={paths.stoneQuest} component={StoneQuest(code)} />
-  </BrowserRouter>
+  </HashRouter>
   </React.StrictMode>
 }
 

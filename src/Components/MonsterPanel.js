@@ -32,8 +32,6 @@ const MonsterPanel = ({ color, dialogue, sceneIndex,
         }
     }
 
-    console.log(nextScene)
-
     const handleClick = () => {
 
         if (input && ans !== dialogue[index].input) {
@@ -58,7 +56,6 @@ const MonsterPanel = ({ color, dialogue, sceneIndex,
     const Words = dialogue[index].text
     const isObject = dialogue[index].isObject
 
-    console.log(color)
     return (<div style={{ margin: "10px" }} className="Center">
                 <audio className="audio-element">
           <source src="https://assets.coderrocketfuel.com/pomodoro-times-up.mp3"></source>
