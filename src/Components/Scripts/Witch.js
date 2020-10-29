@@ -13,9 +13,9 @@ const KingsCup = () => <>
 <p>Eight- Fate- tell the story of how one of you died – (One word story game). The drawer starts by saying one word, the next person must continue  The person who “dies” must drink. (Either the first person to mess up or the person to end the story)</p>
 <p>Nine- Rhyme</p>
 <p>Ten – Categories</p>
-<p>Jack – Make a rule</p>
+<p>Jack – Make a rule (lasts until you leave this room)</p>
 <p>Queen- Halloween – Everyone drinks, instead of cheers, say “Happy Halloween!”</p>
-<p>King- Sting - You are stung. Point at someone else to sting. This person must point at someone else and so on and so force until everyone is stung. The last person stung must drink.</p>
+<p>King- Sting - You are stung. Point at someone else to sting. This person must point at someone else and so on and so forth until everyone is stung. The last person stung must drink.</p>
 Write 'next' once you've finished the game.
 </>
 

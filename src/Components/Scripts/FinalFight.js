@@ -11,7 +11,8 @@ const Rules4 = () => <>
 	</>
 
 const dialogue = (code) => [
-	{text: "You must finish the moon restoration spell before its too late!"},
+	{text: "You must finish the moon restoration spell before it's too late!"},
+	{text:Rules4, isObject:true, input:"moon"},
 	{text:"It's time for the last part of the ritual! The werewolf pack leader now has one more task to complete. He will send the moon energy back into the sky!"},
 	{text:"Input what you see", input:"fireworks"}
 	]

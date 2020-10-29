@@ -63,11 +63,7 @@ export const StoneQuest = (code) => [
 	{text:"Look for clues...", input:"danger666"},
 	{text:Rules1, isObject:true, input:"next"},
 	{text:Rules2, isObject:true, input:"stone"},
-	{text:Rules3, isObject:true, input:"waves"},
-	{text:"You now have all the ingredients to do the ritual. Head back to the witch's room and follow the instructions until the moon restoration spell. Then input the code", input:"6ween6"},
-	{text:Rules4, isObject:true, input:"moon"},
-	{text:"It's time for the last part of the ritual! The werewolf pack leader now has one more task to complete. He will send the moon energy back into the sky!"},
-	{text:"Input what you see", input:"fireworks"}
+	{text:Rules3, isObject:true, input:"waves"}
 	]
 
 export default DialogueAfterGhost

@@ -31,7 +31,7 @@ const dialogue = (code) => [
 	{text: "Unless one of you wants to be a sacrifice, I suggest you start feeding."},
 	{text: Rules1, isObject: true, input:"next"},
 	{text: Rules2, isObject: true, input:"death"},
-	{text: "You found the ritual? Good. I suggest you find whatever you can on that list, then go talk to the witch when you need help.", input:"darkness"}
+	{text: "You found the ritual? Good. I suggest you find whatever you can on that list, then go talk to the witch when you need help.", input:"gravestone"}
 	]
 
 export default dialogue
