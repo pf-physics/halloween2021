@@ -22,7 +22,7 @@ const Rules2 = () => <>
 	<p> One team each take one prey (candy bar) and hide it outside. You have two minutes to hide. Then the next team will go outside and try to find the candy
 	(two minutes to find). Gather the bars that weren't found before the next round of hiding. Werewolves choose which team goes first.</p>
 	<h3>Advantage: Werewolves</h3>
-	<p>They have an extra 30 seconds to hunt/search</p>
+	<p>They have an extra 30 seconds to hunt/search. If you are a witch/wizard with a wolf/owl/cat familiar you also get this advantage.</p>
 	<h3>Disadvantage: Zombies</h3>
 	<p> Hard to be sneaky when your limbs keep falling off. 1.5 minutes to search/hide</p>
 	<p>Each found bar is worth 5 points.</p>

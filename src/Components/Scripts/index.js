@@ -7,6 +7,8 @@ import ZombieDialogue from "./Zombie"
 import MiddleDialogue, { StoneQuest } from "./MiddleDialogue"
 import Spider from "./Spider"
 import Intro from "./Intro"
+import Fight from "./FinalFight"
+import Ending from "./Ending"
 
 
 const scripts = {
@@ -19,7 +21,9 @@ const scripts = {
 	afterGhost: MiddleDialogue,
 	spider: Spider,
 	begin: Intro,
-	stoneQuest: StoneQuest
+	stoneQuest: StoneQuest,
+	finalFight: Fight,
+	ending: Ending
 }
 
 export default scripts

@@ -22,8 +22,8 @@ const Rules2 = () => <>
 </>
 
 const dialogue = (code) => [
-	{text:"Who took the balcony key! I can't even get a breath of fresh air..."},
-	{text:"Oh! You've finally arrived! What was that wolf making you do?"},
+	{text: "Who took the balcony key! I can't even get a breath of fresh air..."},
+	{text: "Oh! You've finally arrived! What was that wolf making you do?"},
 	{text: "You know what? I don't want to know!"},
 	{text: "What? Were you expecting me to be some mindless oaf? Typical..."},
 	{text: "After consuming so many brains, we are the smartest of all species!"},
