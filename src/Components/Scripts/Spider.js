@@ -4,8 +4,9 @@ import {magicCode, undeadCode} from '../../App';
 const Rules1 = () => <>
 	<h1>RULES: Feed the Spider!</h1>
 	<p>
-	Stand at the middle line on the floor and throw one of the "bugs" from the bucket into the containers in front of the spider. (You can make more "bugs" from the aluminum beside.)
-	Each time you score in a bucket, you get the number of points written on the bucket. Make two people on the other team drink 4 times when you get a bug in a bucket.
+	Stand at the middle line on the floor and throw one of the "bugs" from the bucket into the containers in front of the spider.
+	Each time you score in a bucket, you get 5 points (unless the bucket is labelled differently). Make two people on the other team drink 3 times when you get a bug in a bucket.
+	Each team must get one bug in each bucket.
 	The first team to get 10 bugs in the buckets win. +20 bonus points for the winning team.
 	Drink twice if you get it in the web.
 	</p>
@@ -18,7 +19,7 @@ const Rules1 = () => <>
 
 const Rules2 = () => <>
 	<h1>RULES: Dissect the eggs!</h1>
-	<p>Each pick an egg from the spider and cut it open with a knife. Extract the paper from it. If the paper you retrieve is blank, take four sips</p>
+	<p>Each pick an egg from the spider and cut it open with a knife. Extract the paper from it. If the paper you retrieve is blank, take three sips</p>
 	<p>Input the secret code when you're done</p>
 </>
 

@@ -15,7 +15,8 @@ const Rules2 = () => <>
 	<h2>RULES: Face the darkness</h2>
 	<p> In the order found in the previous game, split up into three groups.</p>
 	<p> Take one glow wand each. </p>
-	<p> Go to the wolf's home and retrieve two blankets. Then find the door to the dark one's lair. </p>
+	<p> Go to the wolf's home and retrieve two blankets. Take also the moon restoration supplies.</p>
+	<p>Then find the door to the dark one's lair. </p>
 	<p> Each group has two minutes to search for the moonstones. </p>
 	<p> The stones are in plain sight. You don't need to open any of the cabinets or drawers. Some might be behind furniture.</p>
 	<p> Some of them will be in the cells. You can open the cells and look inside. (Don't touch anything in the cells other than the moonstones.) </p>

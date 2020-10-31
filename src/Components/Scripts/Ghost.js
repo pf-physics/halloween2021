@@ -18,7 +18,7 @@ const Rules1 = () => <>
 const Rules2 = () => <>
 	<h2>RULES: Telepathy (Charades)</h2>
 	<p> Each group must come up with five words that the other group must act out. </p>
-	<p> Each member  picks a word. They have one minute to act it out. The team get 5 points per correct guess. (The group with fewer members will have one member act twice)</p>
+	<p> Each member  picks a word. They have one minute to act it out. The team get 5 points per correct guess.</p>
 	<h3>Advantage: Ghosts</h3>
 	<p>They get 75 seconds to act</p>
 	<h3>Disadvantage: Witches</h3>

@@ -6,7 +6,6 @@ const Rules1 = () => <>
 	<h1>RULES: Graveyard flip cup!</h1>
 	<p>Put each team on both sides of the table. Line yourselves up in front of a cup. Fill the cup halfway. </p>
 	<p>It's a relay race. Start on the left. The first two drink their cup and attemp to flip their cups onto the table. When they succeed, the next person in the row can go.</p>
-	<p>If one team has fewer members, someone on the other team must drink twice.</p>
 	<p>Remember the epitaph on your cup!</p>
 	<p>The winning team gets 50 points!</p>
 	<h2>Advantage: Skeletons</h2>
@@ -32,7 +31,8 @@ const Rules2 = () => <>
 	<h3>Disadvantage: Werewolves</h3>
 	<p>They start in the middle of the room.</p>
 	<p> Use racehorse rules to bet sips on yourself <Race/> </p>
-	<p>The winning person's team gets 40 points! Second player standing gets 20. Third person gets 10.</p>
+	<p>The winning person's team gets 20 points! Second player standing gets 10. Third person gets 5.</p>
+	<p>Play twice</p>
 	<p>Input 'next' when you're done</p>
 </>
 
