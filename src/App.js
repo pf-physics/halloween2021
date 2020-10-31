@@ -30,7 +30,7 @@ const Ability = ({text}) => <p><center><b><u>{text}</u></b></center></p>
 const Magic = [
 	<InfoModal title="Werewolf" content={<div>
 		<Ability text="Ability: Werewolf Bite"/>
-		<p>Biting someone is a wager.</p>
+		<p>Biting someone is a wager. At the beginning of the round, pick someone to bite. </p>
 		<p>If you earn more points than them during the round, the bite will be successful and you will get 20% of their points for the round</p>
 		<p>If you earn fewer points then the bite is unsuccessful and they get 20% of your points.</p>
 		</div>}/>,
@@ -43,22 +43,22 @@ const Magic = [
 		<Ability text="Ability: Cast a Spell"/>
 		<p>Witches/wizards have the ability to cast a spell on a teammate to give them an advantage, or on an opponent to give them a disadvantage, for the round.</p>
 		<p>Casting spells come at a price! When a witch/wizard casts a spell, they must take the disadvantage for that round.</p>
+		<p>They can choose a familiar for themselves: bat, cat, wolf, spider or owl!</p>
 		</div>}/>
 ]
 
 const Undead = [
-	<InfoModal title="Ghost" content={<div>
+	<InfoModal title="Zombie" content={<div>
 		<Ability text="Ability: Resurrection"/>
-		<p>Ghosts have the ability to bring teammates back to life.</p>
+		<p>Zombies have the ability to bring teammates back to life.</p>
 		<p>Choose a teammate to give a second chance at the task. They will keep all their points from both tries.</p>
-		<p>A soul for a soul: You must also ressurect an enemy team member to do the same.</p>
+		<p>A life for a life: You must also ressurect an enemy team member to do the same.</p>
 		<p style={{color:"grey"}}>hint: You can choose the best of your team and the worst of theirs to have a second chance.</p>
 		</div>}/>,
-			<InfoModal title="Zombie" content={<div>
-		<Ability text="Ability: Use your Brains"/>
-		<p> Zombies eat a lot of brains. So much that it can't all fit in their heads!</p>
-		<p> Zombies can choose to make someone balance a brain on their head for the duration of the task.</p>
-		<p> The zombie must also balance the brain during the task. </p>
+			<InfoModal title="Ghost" content={<div>
+		<Ability text="Ability: Haunted word"/>
+		<p> Choose a word that is taboo for the duration of the game. If an enemy teammate says the word, they must drink and your team gains 5 points.</p>
+		<p> If you or a teammate say the word, the other team gets 5 points.</p>
 		</div>}/>,
 			<InfoModal title="Skeleton" content={<div>
 		<Ability text="Ability: Limb Detachement"/>
@@ -88,8 +88,8 @@ const CodeModal = ({setCode, open}) => {
 }
 
 
-export const undeadCode = "undead123"
-export const magicCode = "magic123"
+export const undeadCode = "spookyundead123"
+export const magicCode = "mysticmagic123"
 
 const App = ({getCode}) => {
 

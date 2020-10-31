@@ -1,10 +1,11 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import { Button, Input, Divider, Form } from 'semantic-ui-react'
 import { Link, Redirect } from "react-router-dom";
 import {sceneList} from "../index"
 
+
 const Intro = () => {
-	const secretCode = 12345
+	const secretCode = "HALLOWEENTIME"
 
 	const [val, setVal] = useState("")
 	const [success, setSuccess] = useState(false)
@@ -15,17 +16,18 @@ const Intro = () => {
 		}
 	}
 
-	const onChange = (e) => {
+		const onChange = (e) => {
 		setVal(e.target.value)
 	}
 
+
+
   return (
-    <div className="App">
+  	<div className="App">
     <Divider/>
       <div className="intro">
 	      <h1>WELCOME</h1>
 	      <h2>ARE YOU READY FOR SPOOKS?</h2>
-	      <p>It is time... for your destiny</p>
 	      <Divider hidden/>
 	        <div><Input className="intro" onChange={onChange} placeholder='Input Code' /></div>
 	        <Divider hidden style={{marginTop:"-3px"}}/>

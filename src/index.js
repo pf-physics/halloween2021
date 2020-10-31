@@ -10,24 +10,35 @@ import App from './App';
 import MonsterPanel from './Components/MonsterPanel';
 import WitchHaunt from './Components/WitchHaunt';
 import Intro from './Components/Intro';
+
+import ThreatScene from './Components/FinalFight'
+
 import Dialogues from './Components/Scripts'
 import 'semantic-ui-less/semantic.less'
 import * as serviceWorker from './serviceWorker';
 import wolf from './resources/wolf2.jpg'
 import vampire from './resources/vampire.jpg'
+import skeleton from './resources/skeleton.jpg'
 import zombie from './resources/zombie.jpg'
 import ghost from './resources/ghost.png'
 import darkImg from './resources/black.jpg'
 import moon from './resources/moon.jpg'
 import spider from './resources/spider6.jpg'
+import Ominous from './resources/ominous.mp3'
+import intro from './resources/intro.mp3'
+import ghostSong from './resources/ghost.mp3'
+import vampireSong from './resources/vampire.mp3'
+import skeletonSong from './resources/skeleton.mp3'
+import spiderSong from './resources/spiderRune.mp3'
+import fightSong from './resources/beforeEnding.mp3'
+import witchSong from './resources/witch.mp3'
+import zombieSong from './resources/zombie.mp3'
+import wolfSong from './resources/werewolf.mp3'
+import end from './resources/Ending.mp3'
 
-const paths = {begin: "/begin", witch:"/witch", skeleton:"/skeleton", ghost: "/ghost", witchHaunt:"/witch2", zombie: "/zombie", werewolf: "/werewolf", vampire:"/vampire", ghost:"/ghost", middle1:"/middle1", spider:"/spider", stoneQuest:"/stonequest"}
-
-const d = [{text:'Heeeeeeeeeey its HALLOWEEEEEEEEEEEEEEN', input:"potato"}, {text:"halloweenoweenoweeeen"}, {text:"SKELETONS", input:"test"}, {text:"k bye"}]
-const d2 = [{text:'ITS SPOOKS TIME'}, {text:"ORANGE PUMPKINS!!"}, {text:"SKELETONS"}, {text:"THE END"}]
+const paths = {begin: "/begin", witch:"/witch", skeleton:"/skeleton", ghost: "/ghost", witchHaunt:"/witch2", zombie: "/zombie", werewolf: "/werewolf", vampire:"/vampire", ghost:"/ghost", middle1:"/middle1", spider:"/spider", stoneQuest:"/stonequest", threat:"/threat", ending:"/ending", finalFight:"/finalFight"}
 
 const Zombie = (code) => () => <MonsterPanel image={zombie} code={code} dialogue={Dialogues.zombie(code)}
-music=""
 name="Zombie" color="#002101"/>
 
 const Witch2 = (code) => () => <WitchHaunt code={code} name="WitchHaunt"
@@ -37,7 +48,7 @@ const Witch = (code) => () => <MonsterPanel code={code} dialogue={Dialogues.witc
  image="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/67199786-3498-496b-b0ea-b370ae392068/ddzpwgg-a1343e43-0116-4a4d-8020-51af1ec5b80d.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3sicGF0aCI6IlwvZlwvNjcxOTk3ODYtMzQ5OC00OTZiLWIwZWEtYjM3MGFlMzkyMDY4XC9kZHpwd2dnLWExMzQzZTQzLTAxMTYtNGE0ZC04MDIwLTUxYWYxZWM1YjgwZC5qcGcifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6ZmlsZS5kb3dubG9hZCJdfQ.3vohIv_nbTT4S-yR6IzesJLYxI-tVLXjqE95bTJARtQ"
  name="Witch" color="#4B0082"/>
 
- const Skeleton = (code) => () => <MonsterPanel code={code} dialogue={Dialogues.skeleton(code)}
+ const Skeleton = (code) => () => <MonsterPanel code={code} image={skeleton} dialogue={Dialogues.skeleton(code)}
  name="Skeleton" color="#211100"/>
 
   const Vampire = (code) => () => <MonsterPanel code={code} dialogue={Dialogues.vampire(code)}
@@ -63,18 +74,30 @@ const Witch = (code) => () => <MonsterPanel code={code} dialogue={Dialogues.witc
   const StoneQuest = (code) => () => <MonsterPanel code={code} dialogue={Dialogues.stoneQuest(code)}
  name="StoneQuest" color="#000000"/>
 
+  const Threat = (code) => () => <ThreatScene code={code} name="Threat"
+    color="#000000" image=""/>
+
+const FinalFight = (code) => () => <MonsterPanel code={code} name="FinalFight" dialogue={Dialogues.finalFight(code)}
+    color="#000000" image=""/>
+
+ const Ending = (code) => () => <MonsterPanel code={code} dialogue={Dialogues.ending(code)}
+ name="Ending" isEnd={true} image={""} color="#00000075"/>
+
 export const sceneList = [
-  {name:"Begin", render: Begin, path: paths.begin},
-  {name:"Witch", render: Witch, path: paths.witch},
-  {name:"Skeleton", render: Skeleton, path: paths.skeleton},
-  {name:"Vampire", render: Werewolf, path: paths.vampire},
-  {name:"Werewolf", render: Werewolf, path: paths.werewolf},
-  {name:"Zombie", render: Zombie, path: paths.zombie},
-  {name:"Ghost", render: Ghost, path: paths.ghost},
+  {name:"Begin", render: Begin, path: paths.begin, music: intro},
+  {name:"Witch", render: Witch, path: paths.witch, music: witchSong},
+  {name:"Skeleton", render: Skeleton, path: paths.skeleton, music: skeletonSong},
+  {name:"Vampire", render: Werewolf, path: paths.vampire, music: vampireSong},
+  {name:"Werewolf", render: Werewolf, path: paths.werewolf, music: wolfSong},
+  {name:"Zombie", render: Zombie, path: paths.zombie, music: zombieSong},
+  {name:"Ghost", render: Ghost, path: paths.ghost, music: ghostSong},
   {name:"AfterGhost", render: AfterGhost, path: paths.middle1},
-  {name:"Spider", render: Spider, path: paths.spider},
+  {name:"Spider", render: Spider, path: paths.spider, music: spiderSong},
   {name:"WitchHaunt", render:Witch2, path: paths.witchHaunt},
-  {name:"StoneQuest", render: StoneQuest, path: paths.stoneQuest},
+  {name:"StoneQuest", render: StoneQuest, path: paths.stoneQuest, music: Ominous},
+  {name:"Threat", render: Threat, path: paths.threat},
+  {name:"FinalFight", render: FinalFight, path: paths.finalFight, music: fightSong},
+  {name:"Ending", render: Ending, path: paths.ending, music:end}
 ]
 
 const RenderRoutes = () => {
@@ -96,6 +119,9 @@ return <React.StrictMode>
     <Route exact path={paths.begin} component={Begin(code)} />
     <Route exact path={paths.spider} component={Spider(code)} />
     <Route exact path={paths.stoneQuest} component={StoneQuest(code)} />
+    <Route exact path={paths.threat} component={Threat(code)} />
+    <Route exact path={paths.finalFight} component={FinalFight(code)} />
+    <Route exact path={paths.ending} component={Ending(code)} />
   </HashRouter>
   </React.StrictMode>
 }

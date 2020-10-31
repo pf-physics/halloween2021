@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Button, Image, Divider, Grid, Input, Transition } from 'semantic-ui-react'
 import { Redirect } from "react-router-dom";
 import { sceneList } from "../index"
+import Ominous from '../resources/ScarySound.mp3'
 
 const WitchHaunt = ({ color="purple", sceneIndex, image="https://i.etsystatic.com/5573407/r/il/e4bbd8/2338843113/il_570xN.2338843113_n9iw.jpg", name }) => {
 
@@ -24,7 +25,6 @@ const WitchHaunt = ({ color="purple", sceneIndex, image="https://i.etsystatic.co
 
     const [nextScene, setNextScene] = useState(findNextScene())
 
-    console.log(nextScene)
     const [input, setInput] = useState(dialogue[0].input)
     const [ans, setAns] = useState("")
 
@@ -75,6 +75,7 @@ const WitchHaunt = ({ color="purple", sceneIndex, image="https://i.etsystatic.co
 
         if (!vis && pIn < panic.length) {
             setTimeout(nextWord, pIn === 0 ? 1000 : 50)
+            setTimeout(() => document.getElementsByClassName("Everything")[0].style.opacity=0,2000)
         }
 
         const lines = Array.from(panic).slice(0, pIn)
@@ -94,10 +95,10 @@ const WitchHaunt = ({ color="purple", sceneIndex, image="https://i.etsystatic.co
         const idx = dark.indexOf(darkText) || 0
 
         const nextWord = () => {
+            setMusic(true)
             setDarkText(dark[idx+1])
             setIndex(dialogue.length-1)
             window.scrollTo(0,0)
-            setMusic("https://www.youtube.com/watch?v=TxMWTSVd64w")
        }
 
         if (!vis && pIn >= panic.length && idx < dark.length) {
@@ -106,8 +107,9 @@ const WitchHaunt = ({ color="purple", sceneIndex, image="https://i.etsystatic.co
 
         if (!vis && idx >= dark.length-1) {
             setVis(true)
+            setTimeout(() => document.getElementsByClassName("Everything")[0].style.opacity=1,3000)
         }
-    }    
+    }
 
     DisplayDark()
 
@@ -147,6 +149,15 @@ const WitchHaunt = ({ color="purple", sceneIndex, image="https://i.etsystatic.co
         </Grid>
         </Transition>
         {redirect && <Redirect to={sceneList[nextScene].path} />}
+
+        {music && <audio
+            style={{opacity:0}}
+            controls
+            type="audio/mpeg"
+            autoplay="true"
+            src={Ominous}>
+        </audio>}
+
     </div>
   );
 }

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Button, Image, Divider, Grid, Input } from 'semantic-ui-react'
 import { Redirect } from "react-router-dom";
 import { sceneList } from "../index"
@@ -8,7 +8,8 @@ import { sceneList } from "../index"
 const MonsterPanel = ({ color, dialogue, sceneIndex,
     image="",
     music="",
-    name, code }) => {
+    name, code,
+    isEnd=false }) => {
 
     const findNextScene = () => {
         if (sceneIndex) return sceneIndex
@@ -16,12 +17,29 @@ const MonsterPanel = ({ color, dialogue, sceneIndex,
         return sceneList.indexOf(sceneList.filter(x => x.name === name).pop()) + 1
     }
 
+    const getSong = (nextScene) => {
+        const idx = nextScene > 0 ? nextScene-1 :0
+        return sceneList[idx].music
+    }
+    
+
     const [nextScene, setNextScene] = useState(findNextScene())
     const [input, setInput] = useState(dialogue[0].input)
     const [ans, setAns] = useState("")
+    const song = getSong(nextScene)
 
     const [index, setIndex] = useState(0)
     const [redirect, setRedirect] = useState(false)
+
+
+ const [audio] = useState(new Audio(song));
+    const [playing, setPlaying] = useState(true);
+
+  useEffect(() => {
+      //playing && audio.paused ? audio.play() : audio.pause();
+    },
+    [playing]
+  );
 
     const handleBack = () => {
         if (index >= 1) {
@@ -35,8 +53,11 @@ const MonsterPanel = ({ color, dialogue, sceneIndex,
     const handleClick = () => {
 
         if (input && ans !== dialogue[index].input) {
+            setAns("")
             return
         }
+
+        setAns("")
 
         if (index + 2 > dialogue.length) {
             if (nextScene < sceneList.length) {
@@ -56,10 +77,11 @@ const MonsterPanel = ({ color, dialogue, sceneIndex,
     const Words = dialogue[index].text
     const isObject = dialogue[index].isObject
 
+    if (isEnd) {
+        document.body.classList.add("ending")
+    }
+
     return (<div style={{ margin: "10px" }} className="Center">
-                <audio className="audio-element">
-          <source src="https://assets.coderrocketfuel.com/pomodoro-times-up.mp3"></source>
-        </audio>
         <Grid className="dialogue glow" columns="2" style={{ backgroundColor: color }} stackable>
             <Grid.Column style={{ width:"300px", overflow: "hidden"}}>
                     <Image size="small" src={image} wrapped ui={false} />
@@ -75,7 +97,7 @@ const MonsterPanel = ({ color, dialogue, sceneIndex,
             <Grid.Row textAlign="center" >
                 <Grid.Column textAlign="center" width="100%">
                     <div width="100%" style={{ textAlign: "right", paddingRight: "20px", paddingLeft: "20px" }}>
-                    {input && <Input className={color=="#000000" ? "white" : "answer"} onChange={(e) => setAns(e.target.value.toLowerCase())} style={{ width:"100%"}} placeholder={"Write answer"} />}
+                    {input && <Input value={ans} className={color=="#000000" ? "white" : "answer"} onChange={(e) => setAns(e.target.value.toLowerCase())} style={{ width:"100%"}} placeholder={"Write answer"} />}
                     </div>
                 </Grid.Column>
             </Grid.Row>
@@ -89,8 +111,14 @@ const MonsterPanel = ({ color, dialogue, sceneIndex,
                 </Grid.Column>
             </Grid.Row>
         </Grid>
-        <iframe style={{opacity:0}} width="560" height="315" src={music + "?autoplay=1"} frameborder="0" allow="accelerometer; autoplay={1}; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         {redirect && <Redirect to={sceneList[nextScene].path} />}
+        <audio
+            style={{opacity:0}}
+            controls
+            type="audio/mpeg"
+            autoplay="true"
+            src={song}>
+        </audio>
     </div>
   );
 }
