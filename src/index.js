@@ -89,21 +89,21 @@ const FinalFight = (code) => () => <MonsterPanel code={code} name="FinalFight" d
  const Ending = (code) => () => <MonsterPanel code={code} dialogue={Dialogues.ending(code)}
  name="Ending" isEnd={true} image={""} color="#00000075"/>
 
-export const sceneList = (code, room) => [
+export const sceneList = [
   //{name:"Begin", render: Begin, path: paths.begin, music: intro},
   //{name:"Witch", render: Witch, path: paths.witch, music: witchSong},
-  {name:"PumpkinPatch", render: () => () => <MonsterPanel code={code} room={room} image={skeleton} dialogue={Dialogues.pumpkin(code, room)}
+  {name:"PumpkinPatch", render: () => ({code,room}) => <MonsterPanel code={code} room={room} image={skeleton} dialogue={Dialogues.pumpkin(code, room)}
     name="PumpkinPatch" color="#211100"/>, path: paths.skeleton, music: skeletonSong},
-  {name:"HauntedForest", render: () => () => <MonsterPanel code={code} dialogue={Dialogues.forest(code,room)}
+  {name:"HauntedForest", render: () => ({code,room}) => <MonsterPanel code={code} dialogue={Dialogues.forest(code,room)}
     music="https://www.youtube.com/watch?v=Z5xdQIXzIIg"
     name="Oracle" image={spider} color="#4B0082"/>, path: paths.spider, music: spiderSong},
-  {name:"Oracle", render: () => () => <MonsterPanel code={code} dialogue={Dialogues.oracle(code,room)}
+  {name:"Oracle", render: () => ({code,room}) => <MonsterPanel code={code} dialogue={Dialogues.oracle(code,room)}
     music={witchSong}
     name="Oracle" image={oracle} color="#4B0082"/>, path: paths.spider, music: witchSong},
-  {name:"MainRoom", render: () => () => <MonsterPanel code={code} dialogue={Dialogues.mainroom(code,room)}
+  {name:"MainRoom", render: () => ({code,room}) => <MonsterPanel code={code} dialogue={Dialogues.mainroom(code,room)}
     music="https://www.youtube.com/watch?v=Z5xdQIXzIIg"
     name="MainRoom" image={oracle} color="#4B0082"/>, path: paths.spider, music: ghostSong},
-  {name:"Vampire", render: () => () => <MonsterPanel code={code} dialogue={Dialogues.vampire(code, room)}
+  {name:"Vampire", render: () => ({code,room}) => <MonsterPanel code={code} dialogue={Dialogues.vampire(code, room)}
  name="Vampire" image={vampire} color="#6e0000"/>, path: paths.vampire, music: vampireSong}
   /*
   {name:"Werewolf", render: Werewolf, path: paths.werewolf, music: wolfSong},

@@ -42,7 +42,7 @@ const dialogue = (code, room) =>
 	{text: Rules3, isObject: true, input:"next"},
 	{text: (room >= 4) ? "I recommend you regroup with your friends. It is time we discover what is wrong with this house." : "We must examine this document. I suggest you question the vampire next."},
 	]
-	:
+	: code == phase1 ?
 	[
 	{text: "Welcome to the oracle's room! It also doubles as the potions room."},
 	{text: "Be very careful in this room. If you touch anything except what's on the table you will immediately die"},
@@ -56,5 +56,7 @@ const dialogue = (code, room) =>
 	{text: "We wish you luck."},
 	{text: "", noImage: true},
 	]
+	: [ {text: "Time is running out... keep searching...", switchImage: true} ]
+
 
 export default dialogue

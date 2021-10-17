@@ -1,5 +1,5 @@
 import React from 'react';
-import {phase1, phase2, GeneralHealthRules} from '../../App';
+import {phase0, phase1, phase2, GeneralHealthRules} from '../../App';
 import { Popup, Icon } from 'semantic-ui-react'
 
 const Rules1 = () => <>
@@ -38,7 +38,7 @@ const dialogue = (code, room) =>
 	{text: "But we cannot go yet. There is something wrong with the house. If we fly inside, our wings will surely rot off. Fix what is wrong with the house and we will be there." },
 	{text: (room >= 4) ? "Perhaps the other humans have figured something out. Why don't you join them?" : "We were easy to win over, but I doubt the skeletons in the pumpkin patch will be as kind. Good luck."},
 	]
-	:
+	: code == phase1 ?
 	[
 	{text: "Welcome to the vampire's cave."},
 	{text: "Hello, young bat-lings!"},
@@ -53,6 +53,7 @@ const dialogue = (code, room) =>
 	{text: "He believes you to be his friends? How sad." },
 	{text: "Why don't you stick around a little longer? We'd be happy to have you as guests as soon as your blood alcohol content goes down..."},
 	{text: "Before moving to the next room, each (secretly) write down the name of two famous movies on two pieces of paper and put them in the box. Also write your name on the paper.", noImage: true}
-	]
+	] : code == phase0 ? [ {text: "", noImage: true} ] :
+	[ {text: "Is it time for blood? No? Well wake us up when it is!", switchImage: true} ]
 
 export default dialogue

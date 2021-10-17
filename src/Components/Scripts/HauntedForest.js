@@ -47,7 +47,7 @@ const dialogue = (code, room) =>
 	{text: "However, if we enter the house in its current state, we will surely wither away."},
 	{text: (room >= 4) ? "I recommend you regroup with your friends. Together you might be able to find a solution." : "I suggest you visit the oracle. They might know how to fix this situation."}
 	]
-	:
+	: phase1 ?
 	[
 	{text: "The cold wind of the forest never fails to give me goosebumps!"},
 	{text: "Many of you live here, don't you? It's the perfect place for spiders, werewolves and the like, if I do say so myself."},
@@ -61,6 +61,7 @@ const dialogue = (code, room) =>
 	{text: "What an unfortunate situation... not that it matters to us." },
 	{text: "When he discovers you, I hope he remembers to give us the scraps."},
 	{text: "", noImage: true},
-	]
+	] :
+	[ {text: "The house continues to decay...", switchImage: true}]
 
 export default dialogue

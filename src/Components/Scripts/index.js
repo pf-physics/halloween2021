@@ -77,7 +77,7 @@ const goodDrops =
 	{ code: "123eyedrops"
 	, description: "Some ordinary eyedrops"
 	, inquire: (phase) =>
-		phase == 3 ?
+		phase == 5 ?
 		[ {text:"Oh, my eyedrops! My vision is quite fuzzy so perhaps I shall use it."}
 		, {text:"..."}
 		, {text:"Huh? What's going on? Why are there random humans here?"}
@@ -88,7 +88,16 @@ const goodDrops =
 		, {text:"That seemed to have helped quite a bit-"}
 		, {text:"Hold on. What are a bunch of humans doing here?"}
 		, {text:"Of course! You must be a gift from my friends! It's been a while since I ate a human!"}
-		, {text:"CRONCH", dead: true}
+		, {text:"CRONCH", dead: "He wasn't ready for the truth. Everyone drink 4 times to continue"}
+		]
+	}
+
+const email =
+	{ code: "weirdmail"
+	, description: "A weird email from a weird guy"
+	, hint: "Hint: Tried joining a cult recently?"
+	, inquire: (phase) =>
+		[ {text: "What's this? It's too small. I can't read it."}
 		]
 	}
 
@@ -97,4 +106,13 @@ export const itemList =
 	, goodDrops
 	, badWill
 	, goodWill
+	, email
+	]
+
+// TODO fix
+export const minEvidence =
+	[ goodDrops
+	, badWill
+	, goodWill
+	, email
 	]

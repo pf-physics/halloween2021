@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { sceneList } from "./index";
 import { itemList, itemCombos } from "./Components/Scripts";
 import { SimpleDialogue } from "./Components/MonsterPanel";
+import FinalPhase from "./Components/FinalPhase";
 
 const items_key = "items";
 
@@ -185,7 +186,7 @@ const CodeModal = ({setCode, open}) => {
 export const undeadCode = "spookyundead123"
 export const magicCode = "mysticmagic123"
 
-export const guysName = "Mortimer"
+export const guysName = "Marcellus"
 export const itemName = "scepter"
 export const lastName = "Grimshaw"
 export const evilName = "Morfran"
@@ -203,7 +204,9 @@ export const GeneralHealthRules = () =>
 export const phase0 = "phase0"
 export const phase1 = "phase1"
 export const phase2 = "phase2"
-const phases = [phase0, phase1, phase2]
+export const phase3 = "phase3"
+export const phase4 = "phase4"
+const phases = [phase0, phase1, phase2, phase3, phase4]
 const phase_key = "phase";
 
 const App = ({getCode}) => {
@@ -225,15 +228,11 @@ const App = ({getCode}) => {
   const [modalOpen, setModalOpen] = useState(phases.indexOf((phase)) < 0)
   const [dead, setDead] = useState("")
   const [returnToMain, setReturnToMain] = useState(false)
-  const [dataSceneList, setDataSceneList] = useState(sceneList(phase, visitedRooms.size))
-
 
   const [code, setCode] = useState("")
 
   const updatePage = (val) => {
-  	var numRoom = Array.from(visitedRooms).filter((v) => v !== "MainRoom").length + 1
-  	setDataSceneList(sceneList(phase, numRoom))
-  	var scene = sceneList(phase, numRoom).filter((v) => v.name.toLowerCase() === val.toLowerCase())[0]
+  	var scene = sceneList.filter((v) => v.name.toLowerCase() === val.toLowerCase())[0]
   	if (scene) {
 		scene && setPage(scene.render)
 		scene && localStorage.setItem(room_key, scene.name)
@@ -255,20 +254,21 @@ const App = ({getCode}) => {
   	]
 
   const handleCode = (code) => {
-  	setPhase(code)
   	if (phases.indexOf((code)) >= 0) {
   		localStorage.setItem(phase_key, code)
   		setModalOpen(false)
+	  	setPhase(code)
   	}
   }
 
 
+console.log(dead)
   if (dead)
   	return(
   	<div className="Everything">
   	<div style={{paddingTop:"50px"}} className="dialogueText">
 		<h1>YOU DIED</h1>
-		<h2>Drink a shot to continue</h2>
+		<h2>{dead}</h2>
 		</div>
 	</div>
   	)
@@ -303,7 +303,8 @@ const App = ({getCode}) => {
             </Transition.Group>
       </header>
      {returnToMain && <h2> It seems as though you have visited all the rooms. Perhaps it is wise to return to the main room for now. Don't forget to keep an eye out for clues. Use a health potion if you've found one </h2>}
-     { Page ? <Page/> : <h2>Welcome to Halloween 2021. Please enjoy the party and try not to die</h2>}
+     { phase !== phase4 && (Page ? <Page code={phase} room={Array.from(visitedRooms).filter((v) => v !== "MainRoom").length}/> : <h2>Welcome to Halloween 2021. Please enjoy the party and try not to die</h2>)}
+     { phase == phase4 && <FinalPhase items={items} code={phase} setDead={setDead} room={Array.from(visitedRooms).filter((v) => v !== "MainRoom").length}/>}
     </div>
   );
 }

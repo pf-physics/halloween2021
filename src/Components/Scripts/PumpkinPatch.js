@@ -47,7 +47,7 @@ const dialogue = (code, room) =>
 	{text: "There is something wrong with the house. I'm not setting foot in there until whatever weirdness over there is fixed."},
 	{text: (room >= 4) ? "Try to meet up with your friends. Together you might be able to fix things." : "If you want to fix things here, I suggest you go to the forest next. The creatures there really have it out for him."}
 	]
-	:
+	: code == phase1 ?
 	[
 	{text: "Ah, it's always nice to take a walk in the pumpkin patch! The smell of the swamp! The sight of the graves! Er... which one was yours again?"},
 	{text: "Well, nevermind. Why don't we go fishing since we're here? I'm sure the fish are famished!"},
@@ -60,6 +60,7 @@ const dialogue = (code, room) =>
 	{text: () => <p>"Well, it's his own fault for driving us all away! Making a mess of my graveyard... and writing that mean <b style={{color:"#0084ac"}}>letter</b>..."</p>, isObject: true,},
 	{text: "I doubt you'll survive the evening, so maybe I'll see you later when you're a ghost."},
 	{text: "", noImage: true},
-	]
+	] :
+	[ {text: "Have you solved all the house's issues yet? You're welcome to look around if you think it'll help.", switchImage: true} ]
 
 export default dialogue

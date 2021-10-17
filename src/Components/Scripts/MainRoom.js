@@ -1,5 +1,5 @@
 import React from 'react';
-import {phase1, phase2, GeneralHealthRules, itemName, guysName } from '../../App';
+import {phase0, phase1, phase2, phase3, phase4, GeneralHealthRules, itemName, guysName } from '../../App';
 import { Popup, Icon } from 'semantic-ui-react'
 
 
@@ -49,7 +49,7 @@ const dialogue = (code, room) =>
 	[
 	{text: "What are we doing here? Resting?"}
 	]
-	:
+	: code == phase0 ?
 	[
 	{text: "Welcome friends! My vision isn't quite what it used to be, but I can still recognize your beautiful faces!"},
 	{text: "I'm so glad you finally arrived! You're only several decades late..."},
@@ -59,6 +59,15 @@ const dialogue = (code, room) =>
 	{text: "Although I must confess, I have been feeling rather ill lately. I'm not sure my weary limbs will survive the trip. Instead, I will astral project."},
 	{text: "We are quite a large group, so why don't we split up?"},
 	{text: "I have made some portals in the house to lead to each region! Let us reminisce!"}
+	] : code == phase3 ?
+	[ {text: "Like " + guysName + ", our vision is fading.", switchImage: true}
+	, {text: "We hope you have found enough to lift the curse..."}
+	, {text: "Good luck"}
+	, {text: "Have you lifted the curse?", input: "yes"}
+	, {text: "What did you see when you lifted the curse?", input:"x"}
+	, {text: "Next phase: " + phase4, noImage: true},
+	] :
+	[ {text: "", noImage: true}
 	]
 
 export default dialogue

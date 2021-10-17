@@ -14,7 +14,7 @@ import * as serviceWorker from './serviceWorker';
 //basename={window.location.pathname || ''}
 ReactDOM.render(
   <React.StrictMode>
-  <BrowserRouter basename={"halloween2020"}>
+  <BrowserRouter basename={"halloween2021"}>
       <App />
 	  <Route exact path="/" component={Intro} />
 	  <Route exact path="/test" component={Test} />
