@@ -2,71 +2,165 @@ import React, {useState} from 'react';
 import './App.css';
 import { Button, Dropdown, Menu, Transition, Dimmer, Modal, Divider, Input, Icon } from 'semantic-ui-react'
 import { Link } from "react-router-dom";
+import { sceneList } from "./index";
+import { itemList, itemCombos } from "./Components/Scripts";
+import { SimpleDialogue } from "./Components/MonsterPanel";
 
-const InfoModal = ({title, content}) => {
+const items_key = "items";
+
+const ItemModal = ({phase, items, setItems, setDead}) => {
 	const [open, setOpen] = useState(false)
+	const [val, setVal] = useState("")
+	const [item, setItem] = useState(false)
+	const [comboText, setComboText] = useState("")
+	const [showTo, setShowTo] = useState(false)
+
+	const onSubmit = () => {
+
+  	var newItem = itemList.filter((v) => v.code.toLowerCase() === val.toLowerCase())[0]
+	  	if (newItem) {
+			setItem(newItem)
+			setItems(items.add(newItem))
+			setVal("")
+
+			localStorage.setItem(items_key, Array.from(items.add(newItem)).map(v => v.code))
+	  	}
+	}
+
+	const combineItems = () => {
+		if (item) {
+			var key = [item.code, val].sort().toString()
+			var combo = itemCombos()[key]
+			combo ? setComboText(combo) : setComboText("Why'd you do that")
+		}
+	}
+
+	const onChange = (e) => {
+		setVal(e.target.value)
+	}
+
+	const showItem = (itm) => {
+		if (showTo) {
+			return <SimpleDialogue dialogue={itm.inquire(phase)} setDead={setDead} setShowTo={setShowTo}/>
+		} else {
+		return <div className="dialogueText">
+		<p>{itm.description}</p>
+		<p>{comboText}</p>
+		<div style={{display: "flex"}}>
+			<Button onClick={combineItems} style={{marginBottom:"10px", marginRight: "5px"}} className="default spookButton">Combine</Button>
+			<Input className="intro" onChange={onChange} placeholder='Item Code' />
+		</div>
+		<Button style={{marginBottom:"10px"}} onClick={() => setShowTo(true)} className="default spookButton">Show to {guysName}</Button>
+	  	<Button className="default spookButton" onClick={() => setItem(false)}>New Item</Button>
+		</div>
+	}
+}
+
 	return <Modal
 	  className="glow"
 	  centered={false}
       onClose={() => setOpen(false)}
       onOpen={() => setOpen(true)}
       open={open}
-      trigger={<div className="dropdownTitle" style={{ backgroundColor:"black", color:"white", padding:"10px"}} height="100%" width="100%">{title}</div>}
+      trigger={<div className="dropdownTitle" style={{ backgroundColor:"black", color:"white", padding:"10px"}} height="100%" width="100%">Items</div>}
     >
     <Icon style={{color:'white'}} name='close' onClick={()=>setOpen(false)}/>
-      <Modal.Header style={{ textAlign:"center", backgroundColor:"black", color:"white"}}><div className="modalTitle">{title}</div></Modal.Header>
+      <Modal.Header style={{ textAlign:"center", backgroundColor:"black", color:"white"}}><div className="modalTitle">Items</div></Modal.Header>
       <Modal.Content style={{paddingBottom:"10xp", backgroundColor:"black", color:"white"}}>
-      <div className="modalText">
-      {content}
-      <p style={{color:"grey", marginTop:"10px"}}>Certain ablilities are not always applicable. (When in doubt, please ask!) If you make a mistake, a mysterious power will right things.</p>
-      <p style={{color:"grey"}}> Remember to keep your abilities secret from the other team before you use them! </p>
-      </div>
+	  <div style={{textAlign: "center"}}>
+      <div className="dialogueText" style={{ color: "white" }}>
+      	<div>
+		{ !showTo && Array.from(items).map(i =>
+			<p className={item.code == i.code ? "glow" : ""} style={{padding: "5px", borderRadius: "10px", margin: "0px"}}
+				onClick={() => {setItem(i); setComboText("")}} key={i.code}>{i.code}</p>
+			)
+      	}
+      	</div>
+      	<div style={{ paddingTop: "30px" }}>
+		  { item && showItem(item)}
+      	</div>
+	  </div>
+      {!item &&
+      	<div>
+      		<div><Input className="intro" onChange={onChange} placeholder='Item Code' /></div>
+	        	<Divider hidden style={{marginTop:"-3px"}}/>
+	        <Button className="default spookButton" onClick={onSubmit} type="submit">Enter Item</Button>
+	 	</div>
+	  }
+	  </div>
+      </Modal.Content>
+    </Modal>
+}
+
+
+const PhaseModal = ({setPhase}) => {
+	const [open, setOpen] = useState(false)
+	const [val, setVal] = useState("")
+
+	const onSubmit = () => {
+  	if (phases.indexOf((val)) >= 0) {
+  		localStorage.setItem(phase_key, val)
+			setOpen(false)
+	  	setPhase(val)
+  	}
+	}
+
+		const onChange = (e) => {
+		setVal(e.target.value)
+	}
+
+
+	return <Modal
+	  className="glow"
+	  centered={false}
+      onClose={() => setOpen(false)}
+      onOpen={() => setOpen(true)}
+      open={open}
+      trigger={<div className="dropdownTitle" style={{ backgroundColor:"black", color:"white", padding:"10px"}} height="100%" width="100%">Update Phase</div>}
+    >
+    <Icon style={{color:'white'}} name='close' onClick={()=>setOpen(false)}/>
+      <Modal.Header style={{ textAlign:"center", backgroundColor:"black", color:"white"}}><div className="modalTitle">Update Phase</div></Modal.Header>
+      <Modal.Content style={{paddingBottom:"10xp", backgroundColor:"black", color:"white", textAlign: "center"}}>
+      <div><Input className="intro" onChange={onChange} placeholder='Phase Code' /></div>
+	        <Divider hidden style={{marginTop:"-3px"}}/>
+	        <Button className="default spookButton" onClick={onSubmit} type="submit">Click Here</Button>
+      </Modal.Content>
+    </Modal>
+}
+
+const RoomModal = ({Page, setPage}) => {
+	const [open, setOpen] = useState(false)
+	const [val, setVal] = useState("")
+
+	const onSubmit = () => {
+		setPage(val)
+		setOpen(false)
+	}
+
+		const onChange = (e) => {
+		setVal(e.target.value)
+	}
+
+
+	return <Modal
+	  className="glow"
+	  centered={false}
+      onClose={() => setOpen(false)}
+      onOpen={() => setOpen(true)}
+      open={open}
+      trigger={<div className="dropdownTitle" style={{ backgroundColor:"black", color:"white", padding:"10px"}} height="100%" width="100%">Change Rooms</div>}
+    >
+    <Icon style={{color:'white'}} name='close' onClick={()=>setOpen(false)}/>
+      <Modal.Header style={{ textAlign:"center", backgroundColor:"black", color:"white"}}><div className="modalTitle">Change Rooms</div></Modal.Header>
+      <Modal.Content style={{paddingBottom:"10xp", backgroundColor:"black", color:"white", textAlign: "center"}}>
+      <div><Input className="intro" onChange={onChange} placeholder='Where are you?' /></div>
+	        <Divider hidden style={{marginTop:"-3px"}}/>
+	        <Button className="default spookButton" onClick={onSubmit} type="submit">Click Here</Button>
       </Modal.Content>
     </Modal>
 }
 
 const Ability = ({text}) => <p><center><b><u>{text}</u></b></center></p>
-
-const Magic = [
-	<InfoModal title="Werewolf" content={<div>
-		<Ability text="Ability: Werewolf Bite"/>
-		<p>Biting someone is a wager. At the beginning of the round, pick someone to bite. </p>
-		<p>If you earn more points than them during the round, the bite will be successful and you will get 20% of their points for the round</p>
-		<p>If you earn fewer points then the bite is unsuccessful and they get 20% of your points.</p>
-		</div>}/>,
-			<InfoModal title="Vampire" content={<div>
-		<Ability text="Ability: Night Vision"/>
-		<p>Vampires have strong night vision and can see in darkness.</p>
-		<p>Do the task with your eyes closed and choose a member on the other team to do the same.</p>
-		</div>}/>,
-			<InfoModal title="Witch/Wizard" content={<div>
-		<Ability text="Ability: Cast a Spell"/>
-		<p>Witches/wizards have the ability to cast a spell on a teammate to give them an advantage, or on an opponent to give them a disadvantage, for the round.</p>
-		<p>Casting spells come at a price! When a witch/wizard casts a spell, they must take the disadvantage for that round.</p>
-		<p>They can choose a familiar for themselves: bat, cat, wolf, spider or owl!</p>
-		</div>}/>
-]
-
-const Undead = [
-	<InfoModal title="Zombie" content={<div>
-		<Ability text="Ability: Resurrection"/>
-		<p>Zombies have the ability to bring teammates back to life.</p>
-		<p>Choose a teammate to give a second chance at the task. They will keep all their points from both tries.</p>
-		<p>A life for a life: You must also ressurect an enemy team member to do the same.</p>
-		<p style={{color:"grey"}}>hint: You can choose the best of your team and the worst of theirs to have a second chance.</p>
-		</div>}/>,
-			<InfoModal title="Ghost" content={<div>
-		<Ability text="Ability: Haunted word"/>
-		<p> Choose a word that is taboo for the duration of the game. If an enemy teammate says the word, they must drink and your team gains 5 points.</p>
-		<p> If you or a teammate say the word, the other team gets 5 points.</p>
-		</div>}/>,
-			<InfoModal title="Skeleton" content={<div>
-		<Ability text="Ability: Limb Detachement"/>
-		<p> Skeletons are able to detach and reattach limbs as they please.</p>
-		<p> Skeletons can remove a limb from an enemy team member for the duration of the task (remove meaning they cannot use this limb. Ie- right arm, left leg.)</p>
-		<p> They must also remove the same limb from themselves. If desired, they can remove multiple limbs.</p>
-		</div>}/>
-]
 
 const CodeModal = ({setCode, open}) => {
 		const onChange = (e) => {
@@ -91,31 +185,93 @@ const CodeModal = ({setCode, open}) => {
 export const undeadCode = "spookyundead123"
 export const magicCode = "mysticmagic123"
 
+export const guysName = "Mortimer"
+export const itemName = "scepter"
+export const lastName = "Grimshaw"
+export const evilName = "Morfran"
+
+export const GeneralHealthRules = () =>
+	<div>
+		1st: Gain 10 <br/>
+		2nd: Gain 0 <br/>
+		3rd: Lose 10. Drink <br/>
+		4th: Lose 20. Drink twice <br/>
+		5th: Lose 30. Drink thrice <br/>
+		Ghosts steal 5 points from each person they beat <br/>
+	</div>
+
+export const phase0 = "phase0"
+export const phase1 = "phase1"
+export const phase2 = "phase2"
+const phases = [phase0, phase1, phase2]
+const phase_key = "phase";
+
 const App = ({getCode}) => {
 
+
+  const room_key = "room";
+
+
+  const codesToItems = () =>
+  	{ var storedItems = localStorage.getItem(items_key) || []
+  	  return new Set(itemList.filter(v => storedItems.includes(v.code)))
+  	}
+
+  const [Page, setPage] = useState(false)
   const [open, setopen] = useState(false)
-  const [modalOpen, setModalOpen] = useState(true)
+  const [visitedRooms, setVisitedRooms] = useState(new Set())
+  const [items, setItems] = useState(codesToItems())
+  const [phase, setPhase] = useState(localStorage.getItem(phase_key));
+  const [modalOpen, setModalOpen] = useState(phases.indexOf((phase)) < 0)
+  const [dead, setDead] = useState("")
+  const [returnToMain, setReturnToMain] = useState(false)
+  const [dataSceneList, setDataSceneList] = useState(sceneList(phase, visitedRooms.size))
+
+
   const [code, setCode] = useState("")
-  const [undead, setUndead] = useState(false)
+
+  const updatePage = (val) => {
+  	var numRoom = Array.from(visitedRooms).filter((v) => v !== "MainRoom").length + 1
+  	setDataSceneList(sceneList(phase, numRoom))
+  	var scene = sceneList(phase, numRoom).filter((v) => v.name.toLowerCase() === val.toLowerCase())[0]
+  	if (scene) {
+		scene && setPage(scene.render)
+		scene && localStorage.setItem(room_key, scene.name)
+		scene && setVisitedRooms(visitedRooms.add(scene.name))
+		return scene
+  	}
+	return false
+  }
+
+  !Page && updatePage(localStorage.getItem(room_key) || "")
 
   const toggleMenu = () => setopen(!open)
   const closeMenu = () =>  setopen(false)
 
-  const menuItems = code === undeadCode ? Undead : code === magicCode ? Magic : []
+  const menuItems =
+  	[ <ItemModal setDead={setDead} phase={phase} key="itemModal" items={items} setItems={setItems} title = "Use Item"/>
+  	, <RoomModal key="roomModal" Page={Page} setPage={updatePage}/>
+  	, <PhaseModal key="phaseModal" setPhase={setPhase}/>
+  	]
 
   const handleCode = (code) => {
-  	setCode(code)
-  	if (code === undeadCode) {
-  		setUndead(true)
-  		getCode(undeadCode)
-  		setModalOpen(false)
-  	}
-  	if (code === magicCode) {
-  		setUndead(false)
-  		getCode(magicCode)
+  	setPhase(code)
+  	if (phases.indexOf((code)) >= 0) {
+  		localStorage.setItem(phase_key, code)
   		setModalOpen(false)
   	}
   }
+
+
+  if (dead)
+  	return(
+  	<div className="Everything">
+  	<div style={{paddingTop:"50px"}} className="dialogueText">
+		<h1>YOU DIED</h1>
+		<h2>Drink a shot to continue</h2>
+		</div>
+	</div>
+  	)
 
   return (
     <div className="Everything">
@@ -124,7 +280,7 @@ const App = ({getCode}) => {
 		<Menu secondary style={{ marginTop: 0, marginBottom: 0 }}>
 			<Menu.Menu position="right">
     	      <div style={{paddingTop:"20px", fontSize:"20px"}} className="header">
-    			  Halloween 2020
+    			  Halloween 2021
 	      	</div>
 			</Menu.Menu>
             <Menu.Item position="right" style={{ color: "white" }} icon="bars" onClick={toggleMenu} />
@@ -146,8 +302,11 @@ const App = ({getCode}) => {
                 }
             </Transition.Group>
       </header>
+     {returnToMain && <h2> It seems as though you have visited all the rooms. Perhaps it is wise to return to the main room for now. Don't forget to keep an eye out for clues. Use a health potion if you've found one </h2>}
+     { Page ? <Page/> : <h2>Welcome to Halloween 2021. Please enjoy the party and try not to die</h2>}
     </div>
   );
 }
+
 
 export default App;

@@ -8,12 +8,11 @@ const Intro = () => {
 	const secretCode = "HALLOWEENTIME"
 
 	const [val, setVal] = useState("")
-	const [success, setSuccess] = useState(false)
+	const [Page, setPage] = useState(false)
 
 	const onSubmit = () => {
-		if (val == secretCode) {
-			setSuccess(true)
-		}
+		var scene = sceneList.filter((v) => v.name === val)[0]
+		setPage(scene.render)
 	}
 
 		const onChange = (e) => {
@@ -21,6 +20,7 @@ const Intro = () => {
 	}
 
 
+	console.log(Page)
 
   return (
   	<div className="App">
@@ -29,10 +29,10 @@ const Intro = () => {
 	      <h1>WELCOME</h1>
 	      <h2>ARE YOU READY FOR SPOOKS?</h2>
 	      <Divider hidden/>
-	        <div><Input className="intro" onChange={onChange} placeholder='Input Code' /></div>
+	        <div><Input className="intro" onChange={onChange} placeholder='Where are you?' /></div>
 	        <Divider hidden style={{marginTop:"-3px"}}/>
 	        <Button className="default spookButton" onClick={onSubmit} type="submit">Click Here</Button>
-			{ success && <Redirect to={sceneList[0].path} sceneIndex={0}/> }
+			{ Page && <Page/>}
 		</div>
     </div>
   );
