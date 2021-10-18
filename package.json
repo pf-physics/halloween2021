@@ -1,7 +1,7 @@
 {
-  "name": "halloween2020",
-  "homepage": "https://pf-physics.github.io/halloween2020/",
-  "PUBLIC_URL": "halloween2020/",
+  "name": "halloween2021",
+  "homepage": "https://pf-physics.github.io/halloween2021/",
+  "PUBLIC_URL": "halloween2021/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
