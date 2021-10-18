@@ -209,7 +209,7 @@ export const phase4 = "phase4"
 const phases = [phase0, phase1, phase2, phase3, phase4]
 const phase_key = "phase";
 
-const App = ({getCode}) => {
+const App = () => {
 
 
   const room_key = "room";
