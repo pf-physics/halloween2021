@@ -163,26 +163,6 @@ const RoomModal = ({Page, setPage}) => {
 
 const Ability = ({text}) => <p><center><b><u>{text}</u></b></center></p>
 
-const CodeModal = ({setCode, open}) => {
-		const onChange = (e) => {
-		setCode(e.target.value)
-	}
-
-	return <Modal
-	  className="glow"
-	  centered={false}
-      open={open}
-    >
-      <Modal.Header style={{ textAlign:"center", letterSpacing:"1px", fontFamily:"scaryCandy", fontSize:"30px", backgroundColor:"black", color:"white"}}>Input Identity Code</Modal.Header>
-      <Modal.Content style={{paddingBottom:"10xp", backgroundColor:"black", color:"white"}}>
-        <div style={{textAlign:"center"}}><Input className="white" onChange={onChange} placeholder='Input Code' /></div>
-        <Divider hidden style={{marginTop:"-3px"}}/>
-
-      </Modal.Content>
-    </Modal>
-}
-
-
 export const undeadCode = "spookyundead123"
 export const magicCode = "mysticmagic123"
 
@@ -220,16 +200,23 @@ const App = () => {
   	  return new Set(itemList.filter(v => storedItems.includes(v.code)))
   	}
 
+  const handleCode = (code) => {
+  	if (phases.indexOf((code)) >= 0) {
+  		localStorage.setItem(phase_key, code)
+	  	return code
+  	} else {
+  		return phase0
+		}
+  }
+
   const [Page, setPage] = useState(false)
   const [open, setopen] = useState(false)
   const [visitedRooms, setVisitedRooms] = useState(new Set())
   const [items, setItems] = useState(codesToItems())
-  const [phase, setPhase] = useState(localStorage.getItem(phase_key));
+  const [phase, setPhase] = useState(handleCode(localStorage.getItem(phase_key)));
   const [modalOpen, setModalOpen] = useState(phases.indexOf((phase)) < 0)
   const [dead, setDead] = useState("")
   const [returnToMain, setReturnToMain] = useState(false)
-
-  const [code, setCode] = useState("")
 
   const updatePage = (val) => {
   	var scene = sceneList.filter((v) => v.name.toLowerCase() === val.toLowerCase())[0]
@@ -253,16 +240,6 @@ const App = () => {
   	, <PhaseModal key="phaseModal" setPhase={setPhase}/>
   	]
 
-  const handleCode = (code) => {
-  	if (phases.indexOf((code)) >= 0) {
-  		localStorage.setItem(phase_key, code)
-  		setModalOpen(false)
-	  	setPhase(code)
-  	}
-  }
-
-
-console.log(dead)
   if (dead)
   	return(
   	<div className="Everything">
@@ -276,7 +253,6 @@ console.log(dead)
   return (
     <div className="Everything">
       <header>
-      <CodeModal open={modalOpen} setCode={handleCode}/>
 		<Menu secondary style={{ marginTop: 0, marginBottom: 0 }}>
 			<Menu.Menu position="right">
     	      <div style={{paddingTop:"20px", fontSize:"20px"}} className="header">

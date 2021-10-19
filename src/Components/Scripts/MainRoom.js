@@ -61,10 +61,9 @@ const dialogue = (code, room) =>
 	{text: "I have made some portals in the house to lead to each region! Let us reminisce!"}
 	] : code == phase3 ?
 	[ {text: "Like " + guysName + ", our vision is fading.", switchImage: true}
-	, {text: "We hope you have found enough to lift the curse..."}
+	, {text: "Try to find the source of the curse, then we can use our magic to slow it down."}
 	, {text: "Good luck"}
-	, {text: "Have you lifted the curse?", input: "yes"}
-	, {text: "What did you see when you lifted the curse?", input:"x"}
+	, {text: "What is the curse concealed as?", input:"cookies"}
 	, {text: "Next phase: " + phase4, noImage: true},
 	] :
 	[ {text: "", noImage: true}

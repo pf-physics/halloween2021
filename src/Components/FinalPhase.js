@@ -24,10 +24,7 @@ const wildAccusation = (accused) => [
     {text: "nice going", dead: ("Well that solved nothing. " + accused + ", drink three times to revive yourself and try again.")}
     ]
 
-
-
-// !!!!!!!!!!!!!!!!!
-const guestList = ["Simon", "Canada", "Zehra", "Emil", "Clara", "Henrike", "Sacha", "Sven", "Hanna"] // TODO lol
+const guestList = ["Simon", "Canada", "Zehra", "Emil", "Clara", "Henrike", "Sacha", "Svend", "Hanna", "Daniel", "Dani", "Karo", "Kula", "Kasper", "Louise", "Kristine", "Thanasis", "Angeliki"]
 
 const realAnswer = "Morfran Grimshaw"
 

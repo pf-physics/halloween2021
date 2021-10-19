@@ -92,6 +92,16 @@ const goodDrops =
 		]
 	}
 
+const flyer =
+	{ code: "flyer"
+	, description: "A flyer about some weird cult"
+	, inquire: (phase) =>
+		[ {text: "Ah yes, my cousin's club."}
+		, {text: "I hope it's going well."}
+		]
+	}
+
+
 const email =
 	{ code: "weirdmail"
 	, description: "A weird email from a weird guy"

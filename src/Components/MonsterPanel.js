@@ -155,6 +155,10 @@ const MonsterPanel = ({ color, dialogue, sceneIndex,
 
         setAns("")
 
+        if (index == 0) {
+            setRedirect(false)
+        }
+
         if (index + 2 > dialogue.length) {
             if (nextScene < sceneList.length) {
                 setRedirect(true)
