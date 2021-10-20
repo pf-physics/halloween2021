@@ -1,27 +1,27 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "0da9156a28b4b66b523d315f3eba0d57",
+    "revision": "c9926280125fb4918cb4039fceeb706e",
     "url": "/halloween2021/index.html"
   },
   {
-    "revision": "2d0d685c90c7bcfc2001",
+    "revision": "09bd38a27563eebeaf7f",
     "url": "/halloween2021/static/css/2.29fb477d.chunk.css"
   },
   {
-    "revision": "f1af0d1a48e25da99b7f",
+    "revision": "83524526712450f28532",
     "url": "/halloween2021/static/css/main.04a73c5b.chunk.css"
   },
   {
-    "revision": "2d0d685c90c7bcfc2001",
-    "url": "/halloween2021/static/js/2.e013457d.chunk.js"
+    "revision": "09bd38a27563eebeaf7f",
+    "url": "/halloween2021/static/js/2.bbceecac.chunk.js"
   },
   {
     "revision": "2aff8cf35e0d5ba1e4add0f1b477519f",
-    "url": "/halloween2021/static/js/2.e013457d.chunk.js.LICENSE.txt"
+    "url": "/halloween2021/static/js/2.bbceecac.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "f1af0d1a48e25da99b7f",
-    "url": "/halloween2021/static/js/main.1041dbf7.chunk.js"
+    "revision": "83524526712450f28532",
+    "url": "/halloween2021/static/js/main.439bc289.chunk.js"
   },
   {
     "revision": "36816eabab18feff0c28",
@@ -32,12 +32,20 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/halloween2021/static/media/Clownoween.ce35e3f9.ttf"
   },
   {
+    "revision": "e3929431de086d17abdf8ac2bf1922f4",
+    "url": "/halloween2021/static/media/Flyer.e3929431.jpg"
+  },
+  {
     "revision": "8910d09c871fcdd943df3a68bf676a56",
     "url": "/halloween2021/static/media/PhantomFingers.8910d09c.ttf"
   },
   {
     "revision": "b9abce387bdd6a6a4a8a9f4de75a237a",
     "url": "/halloween2021/static/media/ScarySound.b9abce38.mp3"
+  },
+  {
+    "revision": "6d8c0f698afa0a8dd085eb615e79736a",
+    "url": "/halloween2021/static/media/bats.6d8c0f69.jpg"
   },
   {
     "revision": "13db00b7a34fee4d819ab7f9838cc428",
@@ -58,6 +66,14 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "e8c322de9658cbeb8a774b6624167c2c",
     "url": "/halloween2021/static/media/brand-icons.e8c322de.woff2"
+  },
+  {
+    "revision": "802fe1976b55dd9d7710c847d772550a",
+    "url": "/halloween2021/static/media/cousin1.802fe197.png"
+  },
+  {
+    "revision": "17cc606e64ac6decde8d445593f3846d",
+    "url": "/halloween2021/static/media/cousin2.17cc606e.png"
   },
   {
     "revision": "9c74e172f87984c48ddf5c8108cabe67",

@@ -1,22 +1,26 @@
 {
   "files": {
     "main.css": "/halloween2021/static/css/main.04a73c5b.chunk.css",
-    "main.js": "/halloween2021/static/js/main.1041dbf7.chunk.js",
-    "main.js.map": "/halloween2021/static/js/main.1041dbf7.chunk.js.map",
+    "main.js": "/halloween2021/static/js/main.439bc289.chunk.js",
+    "main.js.map": "/halloween2021/static/js/main.439bc289.chunk.js.map",
     "runtime-main.js": "/halloween2021/static/js/runtime-main.6dd9221b.js",
     "runtime-main.js.map": "/halloween2021/static/js/runtime-main.6dd9221b.js.map",
     "static/css/2.29fb477d.chunk.css": "/halloween2021/static/css/2.29fb477d.chunk.css",
-    "static/js/2.e013457d.chunk.js": "/halloween2021/static/js/2.e013457d.chunk.js",
-    "static/js/2.e013457d.chunk.js.map": "/halloween2021/static/js/2.e013457d.chunk.js.map",
+    "static/js/2.bbceecac.chunk.js": "/halloween2021/static/js/2.bbceecac.chunk.js",
+    "static/js/2.bbceecac.chunk.js.map": "/halloween2021/static/js/2.bbceecac.chunk.js.map",
     "index.html": "/halloween2021/index.html",
-    "precache-manifest.bb85eafef01fdb6eb28933c2a4e9262c.js": "/halloween2021/precache-manifest.bb85eafef01fdb6eb28933c2a4e9262c.js",
+    "precache-manifest.0a69e73ff9c20c5c856ed9ed5d444189.js": "/halloween2021/precache-manifest.0a69e73ff9c20c5c856ed9ed5d444189.js",
     "service-worker.js": "/halloween2021/service-worker.js",
     "static/css/2.29fb477d.chunk.css.map": "/halloween2021/static/css/2.29fb477d.chunk.css.map",
     "static/css/main.04a73c5b.chunk.css.map": "/halloween2021/static/css/main.04a73c5b.chunk.css.map",
-    "static/js/2.e013457d.chunk.js.LICENSE.txt": "/halloween2021/static/js/2.e013457d.chunk.js.LICENSE.txt",
+    "static/js/2.bbceecac.chunk.js.LICENSE.txt": "/halloween2021/static/js/2.bbceecac.chunk.js.LICENSE.txt",
     "static/media/index.css": "/halloween2021/static/media/youmurdererbb_reg.04bc4d70.ttf",
+    "static/media/Flyer.jpg": "/halloween2021/static/media/Flyer.e3929431.jpg",
     "static/media/ScarySound.mp3": "/halloween2021/static/media/ScarySound.b9abce38.mp3",
+    "static/media/bats.jpg": "/halloween2021/static/media/bats.6d8c0f69.jpg",
     "static/media/semantic.less": "/halloween2021/static/media/outline-icons.ef60a4f6.woff",
+    "static/media/cousin1.png": "/halloween2021/static/media/cousin1.802fe197.png",
+    "static/media/cousin2.png": "/halloween2021/static/media/cousin2.17cc606e.png",
     "static/media/ghost.png": "/halloween2021/static/media/ghost.0c046ed5.png",
     "static/media/ghost.mp3": "/halloween2021/static/media/ghost.19685a16.mp3",
     "static/media/host.jpg": "/halloween2021/static/media/host.873f9c09.jpg",
@@ -37,8 +41,8 @@
   "entrypoints": [
     "static/js/runtime-main.6dd9221b.js",
     "static/css/2.29fb477d.chunk.css",
-    "static/js/2.e013457d.chunk.js",
+    "static/js/2.bbceecac.chunk.js",
     "static/css/main.04a73c5b.chunk.css",
-    "static/js/main.1041dbf7.chunk.js"
+    "static/js/main.439bc289.chunk.js"
   ]
 }
