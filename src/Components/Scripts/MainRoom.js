@@ -64,6 +64,8 @@ const dialogue = (code, room) =>
 	, {text: "Try to find the source of the curse, then we can use our magic to slow it down."}
 	, {text: "Good luck"}
 	, {text: "What is the curse concealed as?", input:"cookies"}
+	, {text: "We were able to contain the curse inside the box. Now creatures can enter the house unaffected."}
+	, {text: ("The curse will continue to affect " + guysName + " until it is lifted.")}
 	, {text: "Next phase: " + phase4, noImage: true},
 	] :
 	[ {text: "", noImage: true}

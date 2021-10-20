@@ -46,6 +46,7 @@ const ItemModal = ({phase, items, setItems, setDead}) => {
 		} else {
 		return <div className="dialogueText">
 		<p>{itm.description}</p>
+		{itm.image && <img src={itm.image}/>}
 		<p>{comboText}</p>
 		<div style={{display: "flex"}}>
 			<Button onClick={combineItems} style={{marginBottom:"10px", marginRight: "5px"}} className="default spookButton">Combine</Button>
@@ -93,8 +94,62 @@ const ItemModal = ({phase, items, setItems, setDead}) => {
     </Modal>
 }
 
+const guessingWords =
+	[ "Vampire", "Potion", "Wizard", "Tombstone", "Pumpkin", "Spiderweb"
+	, "Scarecrow", "Skeleton", "Graveyard", "Cemetery", "Poltergeist"
+	, "Cauldron", "Werewolf", "Chocolate", "Haunted", "Halloween", "Spooky", "Goblin"
+	]
 
-const PhaseModal = ({setPhase}) => {
+const HealthPotionModal = () => {
+	const [open, setOpen] = useState(false)
+	const [word, setWord] = useState("")
+	const [potion, setPotion] = useState("")
+
+	const getWord = () =>
+	  guessingWords[Math.floor(Math.random() * (guessingWords.length) )];
+
+	const p1 = ["S","H","R","P"]
+	const p2 = ["A","I","E"]
+	const p3 = ["M","N","B","D","T"]
+	const p4 = ["O","U","Y"]
+
+	const getPotion = () => {
+		setWord(getWord())
+		var po = p1[Math.floor(Math.random() * (p1.length) )] 
+			+ p2[Math.floor(Math.random() * (p2.length) )]
+			+ p3[Math.floor(Math.random() * (p3.length) )]
+			+ p4[Math.floor(Math.random() * (p4.length) )]
+		setPotion(po)
+	}
+
+
+	return <Modal
+	  className="glow"
+	  centered={false}
+      onClose={() => setOpen(false)}
+      onOpen={() => setOpen(true)}
+      open={open}
+      trigger={<div className="dropdownTitle" style={{ backgroundColor:"black", color:"white", padding:"10px"}} height="100%" width="100%">Health Potion</div>}
+    >
+    <Icon style={{color:'white'}} name='close' onClick={()=>setOpen(false)}/>
+      <Modal.Header style={{ textAlign:"center", backgroundColor:"black", color:"white"}}><div className="modalTitle">Health Potion</div></Modal.Header>
+      <Modal.Content style={{paddingBottom:"10xp", backgroundColor:"black", color:"white", textAlign: "center"}}>
+		<div className="dialogueText" style={{ color: "white", fontSize: "25px" }}>
+	      	<p>To use a health potion, go to the potion room.</p>
+	      	<p>Generate a magic word to say to make the potion work. (If you've used the word before, reroll)</p>
+	      	<p>Put two marshamallows in your mouth and say the word to google translate. You have three tries to get it right. If you succeed, roll two extra dice to add to your health.</p>
+	      	<p>To make the potion - If your word is XYZW, in your own cup add one shot of X, add half a spoon of Y, add a shot of Z, add four drops of W. Mix with toothpick</p>
+	      	{word && <p>Your word is {word}</p>}
+			{potion && <p>Your potion is {potion}</p>}
+  	  	</div>
+	        <Divider hidden style={{marginTop:"-3px"}}/>
+	        <Button className="default spookButton" onClick={getPotion} type="submit">Get Potion</Button>
+      </Modal.Content>
+    </Modal>
+}
+
+
+const PhaseModal = ({setPhase, setRooms}) => {
 	const [open, setOpen] = useState(false)
 	const [val, setVal] = useState("")
 
@@ -103,6 +158,7 @@ const PhaseModal = ({setPhase}) => {
   		localStorage.setItem(phase_key, val)
 			setOpen(false)
 	  	setPhase(val)
+	  	setRooms(new Set())
   	}
 	}
 
@@ -161,6 +217,38 @@ const RoomModal = ({Page, setPage}) => {
     </Modal>
 }
 
+
+const GhostModal = () => {
+	const [open, setOpen] = useState(false)
+
+
+
+	return <Modal
+	  className="glow"
+	  centered={false}
+      onClose={() => setOpen(false)}
+      onOpen={() => setOpen(true)}
+      open={open}
+      trigger={<div className="dropdownTitle" style={{ backgroundColor:"black", color:"white", padding:"10px"}} height="100%" width="100%">Ghost Info</div>}
+    >
+    <Icon style={{color:'white'}} name='close' onClick={()=>setOpen(false)}/>
+      <Modal.Header style={{ textAlign:"center", backgroundColor:"black", color:"white"}}><div className="modalTitle">Ghost Info</div></Modal.Header>
+      <Modal.Content style={{paddingBottom:"10xp", backgroundColor:"black", color:"white", textAlign: "center"}}>
+      <div className="dialogueText" style={{ color: "white" }}>
+      	<p>If you die you become a ghost.</p>
+      	<p>There is a strange magic in the house keeping you tethered to it. If you're going to spend all of eternity in this house, you might as well have friends!</p>
+      	<p>Your goal is now to win all the games, forcing the rest of your friends to lose health so they will join you in the house forever!</p>
+      	<p>Rather than health, you will now have ghost points. You start with 10 ghost points. You can spend these points in order to make other player's lives more miserable.</p>
+      	<p>You become more powerful with more ghost points:</p>
+      	<p>If you have 30 ghost points (+ cost of spell) you can affect 2 people for the price of one but you must also take the penalty</p>
+      	<p>If you have 50 ghost points (+ cost of spell) you can affect 2 people, or 3 people for the price of one but you must also take the penalty</p>
+      	<p>If you have 75 ghost points (+ cost of spell) you can affect 3 people, or 4 people for the price of one but you must also take the penalty</p>
+  	  </div>
+      </Modal.Content>
+    </Modal>
+}
+
+
 const Ability = ({text}) => <p><center><b><u>{text}</u></b></center></p>
 
 export const undeadCode = "spookyundead123"
@@ -171,15 +259,27 @@ export const itemName = "scepter"
 export const lastName = "Grimshaw"
 export const evilName = "Morfran"
 
-export const GeneralHealthRules = () =>
-	<div>
-		1st: Gain 10 <br/>
-		2nd: Gain 0 <br/>
-		3rd: Lose 10. Drink <br/>
-		4th: Lose 20. Drink twice <br/>
-		5th: Lose 30. Drink thrice <br/>
-		Ghosts steal 5 points from each person they beat <br/>
-	</div>
+export const GeneralHealthRules = ({phase}) =>
+	{
+		if (phase == phase1)
+			return <div>
+				1st: Gain 10 health/ghost points<br/>
+				2nd: Gain 0 <br/>
+				3rd: Lose 10 health/Lose 5 ghost points. Drink <br/>
+				4th: Lose 20 health/Lose 10 ghost points. Drink twice <br/>
+				5th: Lose 30 health/Lose 15 ghost points. Drink thrice <br/>
+				Ghosts steal 5 points from each person they beat <br/>
+			</div>
+		else
+			return <div>
+				1st: Gain 10 health/ghost points<br/>
+				2nd: Gain 0 <br/>
+				3rd: Lose 10 health/Lose 3 ghost points. Drink <br/>
+				4th: Lose 15 health/Lose 6 ghost points. Drink twice <br/>
+				5th: Lose 20 health/Lose 10 ghost points. Drink thrice <br/>
+				Ghosts steal 5 points from each person they beat <br/>
+			</div>
+	}
 
 export const phase0 = "phase0"
 export const phase1 = "phase1"
@@ -188,6 +288,7 @@ export const phase3 = "phase3"
 export const phase4 = "phase4"
 const phases = [phase0, phase1, phase2, phase3, phase4]
 const phase_key = "phase";
+const health_key = "health";
 
 const App = () => {
 
@@ -236,8 +337,10 @@ const App = () => {
 
   const menuItems =
   	[ <ItemModal setDead={setDead} phase={phase} key="itemModal" items={items} setItems={setItems} title = "Use Item"/>
+  	, <HealthPotionModal key="healthPotionModal" />
   	, <RoomModal key="roomModal" Page={Page} setPage={updatePage}/>
-  	, <PhaseModal key="phaseModal" setPhase={setPhase}/>
+  	, <PhaseModal key="phaseModal" setPhase={setPhase} setRooms={setVisitedRooms}/>
+  	, <GhostModal key="ghostModal"/>
   	]
 
   if (dead)
@@ -279,7 +382,7 @@ const App = () => {
             </Transition.Group>
       </header>
      {returnToMain && <h2> It seems as though you have visited all the rooms. Perhaps it is wise to return to the main room for now. Don't forget to keep an eye out for clues. Use a health potion if you've found one </h2>}
-     { phase !== phase4 && (Page ? <Page code={phase} room={Array.from(visitedRooms).filter((v) => v !== "MainRoom").length}/> : <h2>Welcome to Halloween 2021. Please enjoy the party and try not to die</h2>)}
+     { phase !== phase4 && (Page ? <Page code={phase} room={Array.from(visitedRooms).filter((v) => v !== "MainRoom").length}/> : <h2 style={{paddingTop: "30px"}}>Welcome to Halloween 2021. Please enjoy the party and try not to die</h2>)}
      { phase == phase4 && <FinalPhase items={items} code={phase} setDead={setDead} room={Array.from(visitedRooms).filter((v) => v !== "MainRoom").length}/>}
     </div>
   );

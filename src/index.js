@@ -51,8 +51,11 @@ export const sceneList = [
   {name:"MainRoom", render: () => ({code,room}) => <MonsterPanel code={code} dialogue={Dialogues.mainroom(code,room)}
     music="https://www.youtube.com/watch?v=Z5xdQIXzIIg"
     name="MainRoom" image={oracle} color="#4B0082"/>, path: paths.spider, music: ghostSong},
-  //{name:"Vampire", render: () => ({code,room}) => <MonsterPanel code={code} dialogue={Dialogues.vampire(code, room)}
- //name="Vampire" image={vampire} color="#6e0000"/>, path: paths.vampire, music: vampireSong}
+  {name:"Lounge", render: () => ({code,room}) => <MonsterPanel code={code} dialogue={Dialogues.lounge(code,room)}
+    music="https://www.youtube.com/watch?v=Z5xdQIXzIIg"
+    name="MainRoom" image={oracle} color="#4B0082"/>, path: paths.spider, music: ghostSong},
+  {name:"Vampire", render: () => ({code,room}) => <MonsterPanel code={code} dialogue={Dialogues.vampire(code, room)}
+ name="Vampire" image={vampire} color="#6e0000"/>, path: paths.vampire, music: vampireSong}
   /*
   {name:"Werewolf", render: Werewolf, path: paths.werewolf, music: wolfSong},
   {name:"Zombie", render: Zombie, path: paths.zombie, music: zombieSong},

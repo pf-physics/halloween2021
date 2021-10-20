@@ -189,9 +189,13 @@ const MonsterPanel = ({ color, dialogue, sceneIndex,
     }
 
 
-    dialogue[index].noImage && img !== black && setImg(black)
-    !dialogue[index].noImage && img !== host && img !== image && setImg(host)
-    dialogue[index].switchImage && img !== image && setImg(image)
+    if (dialogue[index].image) {
+        img !== dialogue[index].image && setImg(dialogue[index].image)
+    } else {
+        dialogue[index].noImage && img !== black && setImg(black)
+        !dialogue[index].noImage && img !== host && img !== image && setImg(host)
+        dialogue[index].switchImage && img !== image && setImg(image)
+    }
 
     return (<div style={{ margin: "10px" }} className="Center">
         <Grid className="dialogue glow" columns="2" style={{ backgroundColor: color }} stackable>

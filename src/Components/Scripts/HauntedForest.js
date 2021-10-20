@@ -1,8 +1,10 @@
 import React from 'react';
 import {phase1, phase2, GeneralHealthRules} from '../../App';
 import { Popup, Icon } from 'semantic-ui-react'
+import bats from '../../resources/bats.jpg'
+import spider from '../../resources/spider6.jpg'
 
-const Rules1 = () => <>
+const Rules1 = (phase) => () => <>
 	<h1>RULES: Time to hunt!</h1>
 	<p>Each take a projectile (ball) and sit in a circle around the "prey".</p>
 	<p>When you are ready, everyone must try to collect as many prey as possible by throwing their projectile into the cups.</p>
@@ -14,10 +16,26 @@ const Rules1 = () => <>
 	<p>Spiders are worth 2 points. They have venom and make you lose 5 health points (ghosts are immune)</p>
 	<p>Health potions are worth 0 points</p>
 	<p>Ghosts can use 5 ghost points to force someone to sit one body behind everyone else.</p>
+	<GeneralHealthRules phase={phase}/>
 	<p>Input 'next' when you're done</p>
 </>
 
+
 const Rules2 = () => <>
+	<h1>RULES: Get the bats attention!</h1>
+	<p>Each grab a piece of paper and find a hard surface to write on.</p>
+	<p>You will have one minute and a half to write down as much of the given paragraph as possible, upside-down.</p>
+	<p>You get one point for each letter written correctly, lose one point (and drink) for each letter than is incorrect.</p>
+	<p>The paragraph is:</p>
+	<p>Trick or treat, smell my feet, give me something good to eat. Not too big, not too small, just the size of Montreal. If you don't, I don't care. I'll pull down your underwear.</p>
+	<p>Ghosts can use 10 ghost points to reduce someone's time to one minute</p>
+	<p>Ghosts can use 30 ghost points to make someone use their non-dominant hand.</p>
+	<GeneralHealthRules/>
+	<p>Input 'next' when you're done</p>
+</>
+
+
+const Rules3 = () => <>
 	<h2>RULES: Restore the forest </h2>
 	<p>Regrow the trees that were previously killed.</p>
 	<p>Using the materials present, make a tree as tall as you can in five minutes.</p>
@@ -27,32 +45,26 @@ const Rules2 = () => <>
 	<p>Input 'next' when you're done</p>
 </>
 
-const Rules3 = () => <>
-	<h2>RULES: Pumpkin Picking </h2>
-	<p> Help pick out a new head for the skeletons in the graveyard!</p>
-	<p>Firstly, go into the pumpkin patch and each find a little pumpkin.</p>
-	<p>Once you each have a pumpkin, pick up one of the pumpkins in the main room off the floor and place it on your heads.</p>
-	<p>When you are all ready, race to the other side of the room and back, following the instructions on the ground.</p>
-	<GeneralHealthRules/>
-	<p>Input 'next' when you're done</p>
-</>
-
 const dialogue = (code, room) =>
 	code == phase2 ?
-	[{text: "The humans have returned... and not as corpses... what a shame...", switchImage: true},
-	{text: "Make ammends? Don't make me laugh..."},
-	{text: "If he really wanted to make ammends, he'd fix the damage he did to the forest!"},
-	{text: Rules2, isObject: true, input:"next"},
-	{text: "For your aid in regrowing the forest, we are truly in your debt."},
-	{text: "However, if we enter the house in its current state, we will surely wither away."},
-	{text: (room >= 4) ? "I recommend you regroup with your friends. Together you might be able to find a solution." : "I suggest you visit the oracle. They might know how to fix this situation."}
+	[{text: "The humans have returned... and not as corpses... what a shame...", image: spider},
+	{text: "Make ammends? Don't make me laugh... get out of my sight...", image: spider},
+	{text: "The spiders don't seem to want to talk, what about the bats?", noImage: true},
+	{text: "...", image: bats},
+	{text: Rules2, isObject: true, input:"next", noImage: true},
+	{text: "Geez! What do you want?"},
+	{text: "We'll never forgive him! Not until he restores the forest to its former glory!"},
+	{text: Rules3, isObject: true, input:"next", noImage: true},
+	{text: "For your aid in regrowing the forest, we are truly in your debt.", image: spider},
+	{text: "However, if we enter the house in its current state, we will surely wither away.", image: spider},
+	{text: (room >= 4) ? "I recommend you regroup with your friends. Together you might be able to find a solution." : "I suggest you visit the oracle. They might know how to fix this situation.", image: spider}
 	]
 	: phase1 ?
 	[
 	{text: "The cold wind of the forest never fails to give me goosebumps!"},
-	{text: "Many of you live here, don't you? It's the perfect place for spiders, werewolves and the like, if I do say so myself."},
+	{text: "Many of you live here, don't you? It's the perfect place for spiders, werewolves, bats and the like, if I do say so myself."},
 	{text: "I know, why don't we hunt?"},
-	{text: Rules1, isObject: true, input:"next"},
+	{text: Rules1(phase1), isObject: true, input:"next"},
 	{text: (room >= 4) ? "Nothing like a successful hunt! I'm feeling a little tired. Why don't we retire to the dining room? I'll meet you there." : "Nothing like a successful hunt! Why don't we visit the oracle now? See what future is in store for us. I'll meet you there."},
 	{text: "Sh....", noImage: true },
 	{text: "How DARE he return.", noImage: true},

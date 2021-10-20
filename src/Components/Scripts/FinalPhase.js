@@ -39,12 +39,12 @@ const dialogue = (code) => [
 	{text: "Well, he's still family..."},
 	{text: "I'm taking you out of the will though!"},
 	{text: "gghhmrrmmm...", img: cousin},
-	{text: "*cough* hhhahhhhhhkckkkckkkkkkk"},
+	{text: "hhhahhhhhhkckkkckkkkkkk"},
 	{text: "Quick! You must undo the curse before it's too late!", img: oracle},
-	{text: "What do you see when you undo the curse?", img: oracle, input: "x"},
+	{text: "What creature emmerges when you undo the curse?", img: oracle, input: "snake"},
 	{text: "I feel two centuries younger! Thank you humans. And er... to the ones we lost on the way, you're welcome to stay here or travel the world as you please!", isEnd: true},
 	{text: "Now let's party!", img: skeleton},
-	{text: "Happy Halloween!"},
+	{text: "Happy Halloween!"}
 	]
 
 

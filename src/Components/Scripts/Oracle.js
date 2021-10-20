@@ -1,28 +1,26 @@
 import React from 'react';
 import {phase1, phase2, GeneralHealthRules} from '../../App';
 import { Popup, Icon } from 'semantic-ui-react'
+import oracle from '../../resources/oracle1.jpg'
 
-const Rules1 = () => <>
-	<h1>RULES: Project your mind</h1>
-	<p>Step into the main room. Once at a time, each player must go up to the board and select a piece of paper from the box.</p>
-	<p>Close your eyes and draw. The other players must guess what you are drawing.</p>
-	<p>You have a minute and a half to draw as many as you can.</p>
-	<p>You get one point for guessing correctly, and one point for each drawing that was guessed.</p>
-	<p>Ghosts can use 10 ghost points to reduce someone's time to one minute</p>
-	<p>Ghosts can use 30 ghost points to make someone use their non-dominant hand.</p>
-	<GeneralHealthRules/>
+
+const Rules1 = (phase) => () => <>
+	<h1>RULES: Something</h1>
+	<p>Something</p>
+	<GeneralHealthRules phase={phase}/>
 	<p>Input 'next' when you're done</p>
 </>
 
 const Rules2 = () => <>
-	<h2>RULES: Predict your future </h2>
-	<p>Take one creature for your whole group.</p>
-	<p>Cut the crature open and each extract a <del>noodle</del> intestine. Try not to break it.</p>
-	<p>Throw the noodle onto divination paper. Try to keep the intestine as straight as possible.</p>
-	<p>Win by having the longest spanning intestine</p>
+	<h2>RULES: Telepathy </h2>
+	<p>Each person must come up with four words that the others must act out. Write your name on the paper.</p>
+	<p>You have one minute and a half to act as many as you can (up to four)</p>
+	<p>You get one point for guessing correctly, and one point for each that you guess correctly. You cannot guess your own.</p>
+	<p>Ghosts can use 10 ghost points to reduce someone's time to one minute</p>
 	<GeneralHealthRules/>
 	<p>Input 'next' when you're done</p>
 </>
+
 
 const Rules3 = () => <>
 	<h2>RULES: Find the curse</h2>
@@ -44,17 +42,16 @@ const dialogue = (code, room) =>
 	]
 	: code == phase1 ?
 	[
-	{text: "Welcome to the oracle's room! It also doubles as the potions room."},
-	{text: "Be very careful in this room. If you touch anything except what's on the table you will immediately die"},
+	{text: "Welcome to the oracle's room!"},
 	{text:"Welcome. We see all. We can reveal to you what is hidden. No secrets escape our scrutiny.", noImage: true},
 	{text: "It's been quite some time since I practiced my clairvoyance. Why don't we have a game?"},
-	{text: Rules1, isObject: true, input:"next"},
-	{text: (room >= 4) ? "Hmm... you also seem to be quite rusty. All that clairvoyance has gotten me feeling a little tired. Why don't we retire to the dining room? I'll meet you there." : "Hmm... you also seem to be quite rusty. Well, no matter. Let us head to the vampire's cave. I'll meet you there."},
-	{text: "Humans, poor humans, caught up in this mess", noImage: true },
-	{text: "There is something wrong with the house. Our infinite widsom has become finite. The future is unclear yet clearly dark.", switchImage: true },
+	{text: Rules1(code), isObject: true, input:"next"},
+	{text: (room >= 4) ? "Hmm... you also seem to be quite rusty. All that clairvoyance has gotten me feeling a little tired. Why don't we retire to the main room? I'll meet you there." : "Hmm... you also seem to be quite rusty. Well, no matter. Let us head to the lounge. I'll meet you there."},
+	{text: "Humans, poor humans, caught up in this mess", switchImage: true },
+	{text: "There is something wrong with the house. Our infinite widsom has become finite. The future is unclear yet clearly dark." },
 	{text: "If you wish to escape alive, we implore you to investigate. Act as our eyes and ears." },
 	{text: "We wish you luck."},
-	{text: "", noImage: true},
+	//{text: "Before moving to the next room, each (secretly) write down the name of two famous movies on two pieces of paper and put them in the box. Also write your name on the paper.", noImage: true}
 	]
 	: [ {text: "Time is running out... keep searching...", switchImage: true} ]
 

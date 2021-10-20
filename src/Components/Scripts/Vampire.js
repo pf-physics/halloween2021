@@ -1,3 +1,4 @@
+
 import React from 'react';
 import {phase0, phase1, phase2, GeneralHealthRules} from '../../App';
 import { Popup, Icon } from 'semantic-ui-react'
