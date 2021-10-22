@@ -10,7 +10,7 @@ const Rules1 = () => <>
 	<p>Going counterclockwise, the next person must drink and flip their cup.</p>
 	<p>After succeeding in flipping the cup, fill up the cup to be ready for the next round.</p>
 	<p>If someone is too slow and gets lapped, they are out. Play until the last person standing.</p>
-	<p>Either split the whole room into two groups and play, or have the whole group play at once (in which case, First and second place get 40, third and fourth get 30, etc)</p>
+	<p>Either split the whole room into two groups and play twice, or have the whole group play at once (in which case, First and second place get 40, third and fourth get 30, etc)</p>
 	<p>Ghosts can use 30 ghost points to increase the alcohol someone must drink to the second line.</p>
 	Winner: gets 40 health/ghost points <br/>
 	Second: gets 30 health/ghost points <br/>
@@ -57,13 +57,13 @@ const dialogue = (code, room) =>
 	{text: "It has been quite some time since I made of tour of the grounds, and visited your homes. What better time than now?"},
 	{text: "Although I must confess, I have been feeling rather ill lately. I'm not sure my weary limbs will survive the trip. Instead, I will astral project."},
 	{text: "We are quite a large group, so why don't we split up?"},
-	{text: "I have made some portals in the house to lead to each region! Let us reminisce!"}
+	{text: "I have made some portals in the manor to lead to each region! Let us reminisce!"}
 	] : code == phase3 ?
 	[ {text: "Like " + guysName + ", our vision is fading.", switchImage: true}
 	, {text: "Try to find the source of the curse, then we can use our magic to slow it down."}
 	, {text: "Good luck"}
 	, {text: "What is the curse concealed as?", input:"cookies"}
-	, {text: "We were able to contain the curse inside the box. Now creatures can enter the house unaffected."}
+	, {text: "We were able to contain the curse inside the box. Now creatures can enter the manor unaffected."}
 	, {text: ("The curse will continue to affect " + guysName + " until it is lifted.")}
 	, {text: "Next phase: " + phase4, noImage: true},
 	] :

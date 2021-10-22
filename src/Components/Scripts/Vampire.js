@@ -36,7 +36,7 @@ const dialogue = (code, room) =>
 	{text: Rules2, isObject: true, input:"next"},
 	{text: "That was terrible. We'll give you points for the effort."},
 	{text: "If he promises to serve proper blood, we will join his dinner party." },
-	{text: "But we cannot go yet. There is something wrong with the house. If we fly inside, our wings will surely rot off. Fix what is wrong with the house and we will be there." },
+	{text: "But we cannot go yet. There is something wrong with the manor. If we fly inside, our wings will surely rot off. Fix what is wrong with the manor and we will be there." },
 	{text: (room >= 4) ? "Perhaps the other humans have figured something out. Why don't you join them?" : "We were easy to win over, but I doubt the skeletons in the pumpkin patch will be as kind. Good luck."},
 	]
 	: code == phase1 ?

@@ -4,8 +4,11 @@ import { Button, Dropdown, Menu, Transition, Dimmer, Modal, Divider, Input, Icon
 import { Link } from "react-router-dom";
 import { sceneList } from "./index";
 import { itemList, itemCombos } from "./Components/Scripts";
+import GhostEnding from "./Components/Scripts/DeadEnd";
+import MonsterPanel from "./Components/MonsterPanel";
 import { SimpleDialogue } from "./Components/MonsterPanel";
 import FinalPhase from "./Components/FinalPhase";
+
 
 const items_key = "items";
 
@@ -237,8 +240,8 @@ const GhostModal = () => {
       <Modal.Content style={{paddingBottom:"10xp", backgroundColor:"black", color:"white", textAlign: "center"}}>
       <div className="dialogueText" style={{ color: "white" }}>
       	<p>If you die you become a ghost.</p>
-      	<p>There is a strange magic in the house keeping you tethered to it. If you're going to spend all of eternity in this house, you might as well have friends!</p>
-      	<p>Your goal is now to win all the games, forcing the rest of your friends to lose health so they will join you in the house forever!</p>
+      	<p>There is a strange magic in the manor keeping you tethered to it. If you're going to spend all of eternity in this manor, you might as well have friends!</p>
+      	<p>Your goal is now to win all the games, forcing the rest of your friends to lose health so they will join you in the manor forever!</p>
       	<p>Rather than health, you will now have ghost points. You start with 10 ghost points. You can spend these points in order to make other player's lives more miserable.</p>
       	<p>You become more powerful with more ghost points:</p>
       	<p>If you have 30 ghost points (+ cost of spell) you can affect 2 people for the price of one but you must also take the penalty</p>
@@ -287,7 +290,8 @@ export const phase1 = "phase1"
 export const phase2 = "phase2"
 export const phase3 = "phase3"
 export const phase4 = "phase4"
-const phases = [phase0, phase1, phase2, phase3, phase4]
+export const ghostPhase = "ghostending"
+const phases = [phase0, phase1, phase2, phase3, phase4, ghostPhase]
 const phase_key = "phase";
 const health_key = "health";
 
@@ -382,8 +386,9 @@ const App = () => {
                 }
             </Transition.Group>
       </header>
+     {phase == ghostPhase && <MonsterPanel setDead={setDead} dialogue={GhostEnding}/>}
      {returnToMain && <h2> It seems as though you have visited all the rooms. Perhaps it is wise to return to the main room for now. Don't forget to keep an eye out for clues. Use a health potion if you've found one </h2>}
-     { phase !== phase4 && (Page ? <Page code={phase} room={Array.from(visitedRooms).filter((v) => v !== "MainRoom").length}/> : <h2 style={{paddingTop: "30px"}}>Welcome to Halloween 2021. Please enjoy the party and try not to die</h2>)}
+     { (phase !== phase4 && phase !== ghostPhase) && (Page ? <Page code={phase} room={Array.from(visitedRooms).filter((v) => v !== "MainRoom").length}/> : <h2 style={{paddingTop: "30px"}}>Welcome to Halloween 2021. Please enjoy the party and try not to die</h2>)}
      { phase == phase4 && <FinalPhase items={items} code={phase} setDead={setDead} room={Array.from(visitedRooms).filter((v) => v !== "MainRoom").length}/>}
     </div>
   );

@@ -45,7 +45,7 @@ const dialogue = (code, room) =>
 	{text: "Now, I need you to help my friends! They're too shy to come out and play without a head. After he squashed them all, they haven't even left their graves!"},
 	{text: Rules3, isObject: true},
 	{text: "Alright, alright, I guess I owe you now. Except, I may have lied a little..."},
-	{text: "There is something wrong with the house. I'm not setting foot in there until the weirdness is fixed."},
+	{text: "There is something wrong with the manor. I'm not setting foot in there until the weirdness is fixed."},
 	{text: (room >= 4) ? "Try to meet up with your friends. Together you might be able to fix things." : "If you want to fix things here, I suggest you go to the forest next. The creatures there really have it out for him."}
 	]
 	: code == phase1 ?
@@ -66,6 +66,6 @@ const dialogue = (code, room) =>
 	] : code == phase0 ?
 	[ {text: "", noImage: true}]
 	:
-	[ {text: "Have you solved all the house's issues yet? You're welcome to look around if you think it'll help.", switchImage: true} ]
+	[ {text: "Have you solved all the manor's issues yet? You're welcome to look around if you think it'll help.", switchImage: true} ]
 
 export default dialogue

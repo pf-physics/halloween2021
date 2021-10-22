@@ -54,7 +54,7 @@ const dialogue = (code, room) =>
 	{text: "We'll never forgive him! Not until he restores the forest to its former glory!"},
 	{text: Rules3, isObject: true, noImage: true},
 	{text: "For your aid in regrowing the forest, we are truly in your debt.", image: spider},
-	{text: "However, if we enter the house in its current state, we will surely wither away.", image: spider},
+	{text: "However, if we enter the manor in its current state, we will surely wither away.", image: spider},
 	{text: (room >= 4) ? "I recommend you regroup with your friends. Together you might be able to find a solution." : "I suggest you visit the oracle. They might know how to fix this situation.", image: spider}
 	]
 	: code == phase1 ?
@@ -75,6 +75,6 @@ const dialogue = (code, room) =>
 	]  : code == phase0 ?
 	[ {text: "", noImage: true}]
 	:
-	[ {text: "The house continues to decay...", switchImage: true}]
+	[ {text: "The manor continues to decay...", switchImage: true}]
 
 export default dialogue

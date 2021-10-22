@@ -99,6 +99,7 @@ const MonsterPanel = ({ color, dialogue, sceneIndex,
     code,
     room,
     name,
+    setDead,
     isEnd=false }) => {
 
     const findNextScene = () => {
@@ -172,6 +173,10 @@ const MonsterPanel = ({ color, dialogue, sceneIndex,
 
             setIndex(index + 1)
         }
+    }
+
+    if (dialogue[index].dead) {
+        setDead(dialogue[index].dead)
     }
 
     if (phase !== code) {

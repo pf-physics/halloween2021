@@ -71,7 +71,7 @@ const badWill =
 	, hint: "Hint: Anything suspicious on his desk?"
 	, inquire: () =>
 		[ {text:"My house insurance? What do you want to know about that?"}
-		, {text: "Times sure have changed... back in the day haunted houses didn't need insurance!"}
+		, {text: "Times sure have changed... back in the day haunted manors didn't need insurance!"}
 		, {text: "I'm lucky my cousin helped me fill it out"}
 		, {text: "Speaking of him! He's started a new club and has been handing out flyers!"}
 		, {text: "Take this."}
@@ -133,7 +133,7 @@ const scepter = //done
 	, inquire: (phase) =>
 		[ {text: "Ah yes, the Scepter of Murrazoth"}
 		, {text: "This scepter is what prevents the evil creatures from the other side from taking over the world."}
-		, {text: "It must remain in this house at all times lest the portal be opened."}
+		, {text: "It must remain in this manor at all times lest the portal be opened."}
 		, {text: "For such a powerful item, it is quite tacky..."}
 		]
 	}

@@ -1,5 +1,5 @@
 import React from 'react';
-import {phase0, phase1, phase2, GeneralHealthRules} from '../../App';
+import {guysName, phase0, phase1, phase2, GeneralHealthRules} from '../../App';
 import { Popup, Icon } from 'semantic-ui-react'
 import oracle from '../../resources/oracle1.jpg'
 import host from '../../resources/host.jpg'
@@ -40,12 +40,12 @@ const Rules3 = () => <>
 const dialogue = (code, room) =>
 	code == phase2 ?
 	[{text: "The situation becomes more dire as time moves on.", switchImage: true},
-	{text: "We will use the last of our power to try and find the source of the house's disease."},
+	{text: "We will use the last of our power to try and find the source of the manor's disease."},
 	{text: "While we do so, attempt to practice your telepathy. It may save your life."},
 	{text: Rules2, isObject: true},
 	{text: "Yes... there is something corrupt in the dungeon. You must find what is it."},
-	{text: Rules3, isObject: true, input:"next"},
-	{text: (room >= 4) ? "I recommend you regroup with your friends. It is time we discover what is wrong with this house." : "We must examine this document. I suggest you question the vampire next."},
+	{text: Rules3, isObject: true},
+	{text: (room >= 4) ? "I recommend you regroup with your friends. It is time we discover what is wrong with this manor." : "We must examine this document. Perhaos you should check on " + guysName + " in the lounge now."},
 	]
 	: code == phase1 ?
 	[
@@ -55,7 +55,7 @@ const dialogue = (code, room) =>
 	{text: Rules1(code), isObject: true},
 	{text: (room >= 4) ? "I'm feeling a little tired. Why don't we retire to the main room? I'll meet you there." : "Hmm... you also seem to be quite rusty. Well, no matter. Let us head to the lounge. I'll meet you there."},
 	{text: "Humans, poor humans, caught up in this mess", switchImage: true },
-	{text: "There is something wrong with the house. Our infinite widsom has become finite. The future is unclear yet clearly dark." },
+	{text: "There is something wrong with the manor. Our infinite widsom has become finite. The future is unclear yet clearly dark." },
 	{text: "If you wish to escape alive, we implore you to investigate. Act as our eyes and ears." },
 	{text: "We wish you luck."},
 	//{text: "Before moving to the next room, each (secretly) write down the name of two famous movies on two pieces of paper and put them in the box. Also write your name on the paper.", noImage: true}
