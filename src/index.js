@@ -25,9 +25,11 @@ import oracle from './resources/oracle1.jpg'
 
 import ghostSong from './resources/ghost.mp3'
 import vampireSong from './resources/vampire.mp3'
-import skeletonSong from './resources/skeleton.mp3'
-import spiderSong from './resources/spiderRune.mp3'
-import witchSong from './resources/witch.mp3'
+import skeletonSong from './resources/skeleton.mp4'
+
+import forestSong from './resources/forest2.mp3'
+import oracleSong from './resources/ominous.mp3'
+import loungeSong from './resources/Lounge_rs.mp3'
 
 const paths = {begin: "/begin", witch:"/witch", skeleton:"/skeleton", witchHaunt:"/witch2", zombie: "/zombie", werewolf: "/werewolf", vampire:"/vampire", ghost:"/ghost", middle1:"/middle1", spider:"/spider", stoneQuest:"/stonequest", threat:"/threat", ending:"/ending", finalFight:"/finalFight"}
 
@@ -42,18 +44,23 @@ export const sceneList = [
   //{name:"Witch", render: Witch, path: paths.witch, music: witchSong},
   {name:"PumpkinPatch", render: () => ({code,room}) => <MonsterPanel code={code} room={room} image={skeleton} dialogue={Dialogues.pumpkin(code, room)}
     name="PumpkinPatch" color="#211100"/>, path: paths.skeleton, music: skeletonSong},
+
   {name:"HauntedForest", render: () => ({code,room}) => <MonsterPanel code={code} dialogue={Dialogues.forest(code,room)}
     music="https://www.youtube.com/watch?v=Z5xdQIXzIIg"
-    name="Oracle" image={spider} color="#4B0082"/>, path: paths.spider, music: spiderSong},
+    name="HauntedForest" image={spider} color="#4B0082"/>, path: paths.spider, music: forestSong},
+
   {name:"Oracle", render: () => ({code,room}) => <MonsterPanel code={code} dialogue={Dialogues.oracle(code,room)}
-    music={witchSong}
-    name="Oracle" image={oracle} color="#4B0082"/>, path: paths.spider, music: witchSong},
+    music={oracleSong}
+    name="Oracle" image={oracle} color="#4B0082"/>, path: paths.spider, music: oracleSong},
+
   {name:"MainRoom", render: () => ({code,room}) => <MonsterPanel code={code} dialogue={Dialogues.mainroom(code,room)}
     music="https://www.youtube.com/watch?v=Z5xdQIXzIIg"
     name="MainRoom" image={oracle} color="#4B0082"/>, path: paths.spider, music: ghostSong},
+
   {name:"Lounge", render: () => ({code,room}) => <MonsterPanel code={code} dialogue={Dialogues.lounge(code,room)}
     music="https://www.youtube.com/watch?v=Z5xdQIXzIIg"
-    name="MainRoom" image={oracle} color="#4B0082"/>, path: paths.spider, music: ghostSong},
+    name="Lounge" image={oracle} color="#4B0082"/>, path: paths.spider, music:loungeSong },
+
   {name:"Vampire", render: () => ({code,room}) => <MonsterPanel code={code} dialogue={Dialogues.vampire(code, room)}
  name="Vampire" image={vampire} color="#6e0000"/>, path: paths.vampire, music: vampireSong}
   /*

@@ -5,14 +5,17 @@ import cousin from '../../resources/cousin1.png'
 import cousin2 from '../../resources/cousin2.png'
 import spider from '../../resources/spider6.jpg'
 import oracle from '../../resources/oracle1.jpg'
+import black from '../../resources/black.jpg'
 
 const dialogue = (code) => [
-	{text: "Hey! It's time to party! Oh hold on, " + guysName + " isn't looking too good.", img: skeleton},
+	{text: "Alright we're here and we're ready to give Marcellus a chance. Oh... he isn't looking too good.", img: skeleton},
+	//{text: "Hey! It's time to party! Oh hold on, " + guysName + " isn't looking too good.", img: skeleton},
 	{text: "Hrrmmmhhrmmmm"},
-	{text: "Did you figure out who is behind everything? Did you find proof?", img: skeleton},
+	{text: "Alright, explain. What's going on here?", img: skeleton},
+	{text: "Press next if you have proof to convince them to be friends with " + guysName + " again", img: black},
 	{text: "Let's take a look at your evidence!", img: skeleton},
 	{text: "Hmm....", evidenceCheck: true, img: skeleton },
-	{text: "Yes! I see! ...well... maybe I don't... who do you think did it?", input:"Morfran Grimshaw", culpritCheck: true, img: skeleton},
+	{text: "Yes! I see! ...well... maybe I don't... who do you is responsible for all this?", input:"Morfran Grimshaw", culpritCheck: true, img: skeleton},
 	{text: "Right! His cousin!", img: skeleton },
 	{text: "Outrageous! My cousin has done nothing but help me these past years!"},
 	{text: ("Are you sure he was helping you? Look at this will he made! And this email! He's obviously trying to steal the " + itemName + "!"), img: skeleton },
@@ -34,7 +37,7 @@ const dialogue = (code) => [
 	{text: "...", img: cousin2},
 	{text: "...", img: spider},
 	{text: "ok", img: cousin2},
-	{text: "You must take the cursed sand and sprinkle one milimeter of dried seamonster tears on top. Then just set it on fire.", img: cousin2},
+	{text: "You must take the cursed sand and pour a bunch of dragon drool in the middle. Then add a pile of dried seamonster tears on top and set it all on fire.", img: cousin2},
 	{text: "Shall we eat him now?", img: spider},
 	{text: "Well, he's still family..."},
 	{text: "I'm taking you out of the will though!"},

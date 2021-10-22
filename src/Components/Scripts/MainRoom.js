@@ -21,7 +21,6 @@ const Rules1 = () => <>
 	Sixth: loses 20 health/ghost points <br/>
 	Seventh: loses 30 health/ghost points <br/>
 	Eigth: loses 40 health/ghost points <br/>
-	Ninth: loses 45 health/ghost points <br/>
 	<p> Input 'next' when you're done </p>
 </>
 

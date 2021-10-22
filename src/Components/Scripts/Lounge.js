@@ -10,7 +10,7 @@ const Rules1 = (phase) => () => <>
 	<p>You get one point for guessing correctly, and one point for each drawing that was guessed.</p>
 	<p>Ghosts can use 10 ghost points to reduce someone's time to one minute</p>
 	<p>Ghosts can use 30 ghost points to make someone use their non-dominant hand.</p>
-	<GeneralHealthRules phase={phase}/>
+	<GeneralHealthRules/> //Using phase 2 since can lose health from spiders
 	<p>Input 'next' when you're done</p>
 </>
 

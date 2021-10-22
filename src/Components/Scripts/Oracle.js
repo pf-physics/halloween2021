@@ -1,14 +1,21 @@
 import React from 'react';
-import {phase1, phase2, GeneralHealthRules} from '../../App';
+import {phase0, phase1, phase2, GeneralHealthRules} from '../../App';
 import { Popup, Icon } from 'semantic-ui-react'
 import oracle from '../../resources/oracle1.jpg'
+import host from '../../resources/host.jpg'
 
 
 const Rules1 = (phase) => () => <>
-	<h1>RULES: Something</h1>
-	<p>Something</p>
+	<h1>RULES: Predict your future</h1>
+	<p>Predict your future by throwing shooting stars onto the constellations.</p>
+	<p>Throw your shooting stars onto the constellations, try to get one star in each constellation. Hold onto the star tail in case it doesn't land.</p>
+	<p>Get 5 points for each new constellation you reach. Get extra five points for landing on a line and an extra ten points for landing on a star.</p>
+	<p>Fortunes:</p>
+	Get all constellations: You have a bright future! Make someone drink twice <br/>
+	Get 3-4: You have a nice future! Make someone drink once <br/>
+	Get 1-2: You have... a future... drink once <br/>
+	Get 0: Your future isn't great. Drink twice <br/><br/>
 	<GeneralHealthRules phase={phase}/>
-	<p>Input 'next' when you're done</p>
 </>
 
 const Rules2 = () => <>
@@ -18,24 +25,24 @@ const Rules2 = () => <>
 	<p>You get one point for guessing correctly, and one point for each that you guess correctly. You cannot guess your own.</p>
 	<p>Ghosts can use 10 ghost points to reduce someone's time to one minute</p>
 	<GeneralHealthRules/>
-	<p>Input 'next' when you're done</p>
 </>
 
 
 const Rules3 = () => <>
 	<h2>RULES: Find the curse</h2>
-	<p>Split up into two groups, of ghost and alive (not necessarily equal). If you are all dead/alive, split into two equal groups.</p>
-	<p>Grab the lanterns off the table and make your way downstairs into the dungeon, using the lanterns to light your way.</p>
+	<p>Split up into two groups, of ghost and living (not necessarily equal). If you are all dead/alive, split into two groups of 2/3.</p>
+	<p>Grab the lanterns off the table in the study and make your way downstairs into the dungeon, using the lanterns to light your way. (If the lights are on in the basement, please turn them off. If someone is down there, please wait for them to leave)</p>
 	<p>There are multiple documents. Keep searching until ONE group has found ONE document. Leave the others behind.</p>
-	<p>The winning group gets 15 health/ghost points. The losing group loses 15 health/ghost points.</p>
-	<p>Input 'next' when you're done</p>
+	<p>The winning group gains 10 health/ghost points. The losing group loses 10 health/ghost points.</p>
+	<p>Don't forget to return the lanterns to the table</p>
 </>
 
 const dialogue = (code, room) =>
 	code == phase2 ?
 	[{text: "The situation becomes more dire as time moves on.", switchImage: true},
-	{text: "As our vision decreases, you must rely on other sources to find your next course of action."},
-	{text: Rules2, isObject: true, input:"next"},
+	{text: "We will use the last of our power to try and find the source of the house's disease."},
+	{text: "While we do so, attempt to practice your telepathy. It may save your life."},
+	{text: Rules2, isObject: true},
 	{text: "Yes... there is something corrupt in the dungeon. You must find what is it."},
 	{text: Rules3, isObject: true, input:"next"},
 	{text: (room >= 4) ? "I recommend you regroup with your friends. It is time we discover what is wrong with this house." : "We must examine this document. I suggest you question the vampire next."},
@@ -43,16 +50,17 @@ const dialogue = (code, room) =>
 	: code == phase1 ?
 	[
 	{text: "Welcome to the oracle's room!"},
-	{text:"Welcome. We see all. We can reveal to you what is hidden. No secrets escape our scrutiny.", noImage: true},
-	{text: "It's been quite some time since I practiced my clairvoyance. Why don't we have a game?"},
-	{text: Rules1(code), isObject: true, input:"next"},
-	{text: (room >= 4) ? "Hmm... you also seem to be quite rusty. All that clairvoyance has gotten me feeling a little tired. Why don't we retire to the main room? I'll meet you there." : "Hmm... you also seem to be quite rusty. Well, no matter. Let us head to the lounge. I'll meet you there."},
+	{text:"Welcome. We see all. We can reveal to you what is hidden. No secrets escape our scrutiny.", image: oracle},
+	{text: "Oracle, what does the future have in store for us?", image: host},
+	{text: Rules1(code), isObject: true},
+	{text: (room >= 4) ? "I'm feeling a little tired. Why don't we retire to the main room? I'll meet you there." : "Hmm... you also seem to be quite rusty. Well, no matter. Let us head to the lounge. I'll meet you there."},
 	{text: "Humans, poor humans, caught up in this mess", switchImage: true },
 	{text: "There is something wrong with the house. Our infinite widsom has become finite. The future is unclear yet clearly dark." },
 	{text: "If you wish to escape alive, we implore you to investigate. Act as our eyes and ears." },
 	{text: "We wish you luck."},
 	//{text: "Before moving to the next room, each (secretly) write down the name of two famous movies on two pieces of paper and put them in the box. Also write your name on the paper.", noImage: true}
-	]
+	] : code == phase0 ?
+	[ {text: "", noImage: true}]
 	: [ {text: "Time is running out... keep searching...", switchImage: true} ]
 
 

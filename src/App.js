@@ -137,7 +137,7 @@ const HealthPotionModal = () => {
 		<div className="dialogueText" style={{ color: "white", fontSize: "25px" }}>
 	      	<p>To use a health potion, go to the potion room.</p>
 	      	<p>Generate a magic word to say to make the potion work. (If you've used the word before, reroll)</p>
-	      	<p>Put two marshamallows in your mouth and say the word to google translate. You have three tries to get it right. If you succeed, roll two extra dice to add to your health.</p>
+	      	<p>Put two marshmallows in your mouth and say the word to google translate. You have three tries to get it right. If you succeed, roll two extra dice to add to your health.</p>
 	      	<p>To make the potion - If your word is XYZW, in your own cup add one shot of X, add half a spoon of Y, add a shot of Z, add four drops of W. Mix with toothpick</p>
 	      	{word && <p>Your word is {word}</p>}
 			{potion && <p>Your potion is {potion}</p>}
@@ -154,10 +154,11 @@ const PhaseModal = ({setPhase, setRooms}) => {
 	const [val, setVal] = useState("")
 
 	const onSubmit = () => {
-  	if (phases.indexOf((val)) >= 0) {
-  		localStorage.setItem(phase_key, val)
+	const newPhase = val.toLowerCase()
+  	if (phases.indexOf((newPhase)) >= 0) {
+  		localStorage.setItem(phase_key, newPhase)
 			setOpen(false)
-	  	setPhase(val)
+	  	setPhase(newPhase)
 	  	setRooms(new Set())
   	}
 	}

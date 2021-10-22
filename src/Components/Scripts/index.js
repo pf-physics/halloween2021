@@ -106,7 +106,7 @@ const goodDrops =
 		]
 	}
 
-const flyer =
+const flyer = //done
 	{ code: "flyer"
 	, description: "A flyer about some weird cult"
 	, image: flyerImg
@@ -117,7 +117,7 @@ const flyer =
 	}
 
 
-const email =
+const email = //done
 	{ code: "weirdmail"
 	, description: "A weird email from a weird guy"
 	, hint: "Hint: Tried joining a cult recently?"
@@ -127,7 +127,7 @@ const email =
 	}
 
 
-const scepter =
+const scepter = //done
 	{ code: "scepterm"
 	, description: "The Scepter of Murrazoth. A powerful magical item."
 	, inquire: (phase) =>
@@ -138,7 +138,7 @@ const scepter =
 		]
 	}
 
-const letter =
+const letter = //done
 	{ code: "letter1"
 	, description: "A letter that Marcellus DEFINITELY wrote. There's a scale glued to it."
 	, inquire: (phase) =>
@@ -146,15 +146,15 @@ const letter =
 		]
 	}
 
-const letter2 =
+const letter2 = //done
 	{ code: "fertilizer"
-	, description: "A bag of fertilizer that smells strongly of bleach. A letter that Marcellus DEFINITELY wrote was attached to it. There's a scale glued to it."
+	, description: "An empty bag of fertilizer that smells strongly of bleach. A letter that Marcellus DEFINITELY wrote was attached to it. There's a scale glued to it."
 	, inquire: (phase) =>
 		[ {text: "What's this? Smells funny..."}
 		]
 	}
 
-const scepterPage =
+const scepterPage = //done
 	{ code: "scepterpage"
 	, description: "Information about the Scepter of Murrazoth. For some reason the page doesn't match the rest of the book..."
 	, inquire: (phase) =>
@@ -162,12 +162,29 @@ const scepterPage =
 		]
 	}
 
-const scepterPage2 =
+const scepterPage2 = //done
 	{ code: "scepterinfo"
 	, description: "Information about the Scepter of Murrazoth."
 	, hint: "Hint: The pumpkin patch seems like a good place to hide things"
 	, inquire: (phase) =>
 		[ {text: "What's this? It's too small. I can't read it."}
+		]
+	}
+
+const magicBook = //done
+	{ code: "magicbook"
+	, description: "A book about spells, potions, creatures and relics."
+	, inquire: (phase) =>
+		[ {text: "This is quite a good book! I fully recommend it!"}
+		, {text: "I hear a new version is coming out soon."}
+		]
+	}
+
+const mysteriousDoc =
+	{ code: "whitepage"
+	, description: "A document with a weird aura"
+	, inquire: (phase) =>
+		[ {text: "Why are you bringing me rubbish?"}
 		]
 	}
 
@@ -184,6 +201,8 @@ export const itemList =
 	, letter2
 	, scepterPage
 	, scepterPage2
+	, magicBook
+	, mysteriousDoc
 	]
 
 

@@ -7,10 +7,12 @@ import black from '../resources/black.jpg'
 import FinalDialogue from './Scripts/FinalPhase.js'
 import { itemList, minEvidence } from "../Components/Scripts";
 import skeleton from '../resources/skeleton.jpg'
+import partySong from '../resources/partytime.mp3'
+import startSong from '../resources/finalPhase.mp3'
 
 
 const wrongEvidence = (missing) => [
-    {text: "Hmm... I'm not sure this will be enough to convince anyone...", img: skeleton},
+    {text: "Hmm... this isn't telling me anything. Are you just wasting our time?", img: skeleton},
     {text: missing, img: black}
     ]
 
@@ -29,7 +31,6 @@ const guestList = ["Simon", "Canada", "Zehra", "Emil", "Clara", "Henrike", "Sach
 const realAnswer = "Morfran Grimshaw"
 
 export const MonsterPanel = ({ color, sceneIndex,
-    music="",
     code,
     room,
     name,
@@ -45,27 +46,24 @@ export const MonsterPanel = ({ color, sceneIndex,
         return sceneList.indexOf(sceneList.filter(x => x.name === name).pop()) + 1
     }
 
-    const getSong = () => {
-        const idx = nextScene > 0 ? nextScene-1 : 0
-        const scene = sceneList.find(v => v.name == name)
-        return scene && scene.music
-
-        return sceneList[idx].music
-    }
-    
-
     const [nextScene, setNextScene] = useState(findNextScene())
     const [input, setInput] = useState(dialogue[0].input)
     const [ans, setAns] = useState("")
     const [phase, setPhase] = useState(code)
-    const song = getSong()
     const [returnIndex, setReturnIndex] = useState(0)
 
     const [index, setIndex] = useState(0)
     const [redirect, setRedirect] = useState(false)
 
- const [audio] = useState(new Audio(song));
+
+    const [song, setSong] = useState(startSong)
+    if (dialogue[index].isEnd && song != partySong) {
+        setSong(partySong)
+    }
+
+    const [audio] = useState(new Audio(song));
     const [playing, setPlaying] = useState(true);
+
 
   useEffect(() => {
       //playing && audio.paused ? audio.play() : audio.pause();
