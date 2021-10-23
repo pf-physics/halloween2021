@@ -126,6 +126,7 @@ const HealthPotionModal = () => {
 	}
 
 
+
 	return <Modal
 	  className="glow"
 	  centered={false}
