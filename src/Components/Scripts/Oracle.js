@@ -12,8 +12,8 @@ const Rules1 = (phase) => () => <>
 	<p>Get 5 points for each new constellation you reach. Get extra five points for landing on a line and an extra ten points for landing on a star.</p>
 	<p>Fortunes:</p>
 	Get all constellations: You have a bright future! Make someone drink twice <br/>
-	Get 3-4: You have a nice future! Make someone drink once <br/>
-	Get 1-2: You have... a future... drink once <br/>
+	Get 4-6: You have a nice future! Make someone drink once <br/>
+	Get 1-3: You have... a future... drink once <br/>
 	Get 0: Your future isn't great. Drink twice <br/><br/>
 	<GeneralHealthRules phase={phase}/>
 </>
@@ -34,6 +34,7 @@ const Rules3 = () => <>
 	<p>Grab the lanterns off the table in the study and make your way downstairs into the dungeon, using the lanterns to light your way. (If the lights are on in the basement, please turn them off. If someone is down there, please wait for them to leave)</p>
 	<p>There are multiple documents. Keep searching until ONE group has found ONE document. Leave the others behind.</p>
 	<p>The winning group gains 10 health/ghost points. The losing group loses 10 health/ghost points.</p>
+	<p>Note - only go into the middle dungeon cell. You can also go into the cell without a door.</p>
 	<p>Don't forget to return the lanterns to the table</p>
 </>
 

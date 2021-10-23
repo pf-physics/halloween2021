@@ -2,6 +2,7 @@ import React from 'react';
 import {phase0, phase1, phase2, GeneralHealthRules, guysName} from '../../App';
 import { Popup, Icon } from 'semantic-ui-react'
 
+ //Using phase 2 since can lose health from spiders
 const Rules1 = (phase) => () => <>
 	<h1>RULES: A friendly game</h1>
 	<p>Once at a time, each player must go up to the board and select a piece of paper from the box.</p>
@@ -10,7 +11,7 @@ const Rules1 = (phase) => () => <>
 	<p>You get one point for guessing correctly, and one point for each drawing that was guessed.</p>
 	<p>Ghosts can use 10 ghost points to reduce someone's time to one minute</p>
 	<p>Ghosts can use 30 ghost points to make someone use their non-dominant hand.</p>
-	<GeneralHealthRules/> //Using phase 2 since can lose health from spiders
+	<GeneralHealthRules/>
 </>
 
 const Rules2 = () => <>
@@ -28,9 +29,11 @@ const dialogue = (code, room) =>
 	[{text: "I've worked up quite an apetite. Would you mind grabbing us some food?"},
 	{text: Rules2, isObject: true},
 	{text: "Mmm, that was quite exquisite."},
+	{text: "Do you not enjoy intestines? In that case, I think I have... yes!"},
+	{text: "itemcode: bread"},
 	{text: "I'm quite full now... so perhaps I'll..."},
 	{text: "zzzzz..." },
-	{text: (room >= 4) ? "A nap sounds good... why don't join him. Perhaps your friends will return soon." : "While he is asleep, perhaps go visit the pumpkin patch.", noImage: true},
+	{text: (room >= 4) ? "A nap sounds good... why don't you join him. Perhaps your friends will return soon." : "While he is asleep, perhaps go visit the pumpkin patch.", noImage: true},
 	]
 	: code == phase1 ?
 	[

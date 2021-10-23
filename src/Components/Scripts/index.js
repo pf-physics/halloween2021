@@ -49,13 +49,14 @@ export const itemCombos = () =>
 		combos[[goodWill.code, goodDrops.code].sort().toString()] = "Now the will is soggy..."
 		combos[[scepterPage.code, letter.code].sort().toString()] = "The words on the page match the writing in the letter"		
 		combos[[scepterPage.code, letter2.code].sort().toString()] = "The words on the page match the writing in the letter"
+		combos[[bread.code, rat.code].sort().toString()] = "You break off some bread and give it to the rat. It nibbles the bread then looks straight at you. The number 284337 suddenly appears in your mind."
 
 		return combos
 	}
 
 
 const poisonDrops =
-	{ code: "eyedrops666"
+	{ code: "eyedrops"
 	, description : "A bottle of eyedrops. The liquid smells strongly of bleach."
 	, inquire: () =>
 		[ {text:"Oh, my eyedrops! My vision is quite fuzzy so perhaps I shall use it."}
@@ -86,8 +87,8 @@ const goodWill =
 	, inquire: () => [ {text:"What's that? The writing is too small, I can't read it!"} ]
 	}
 
-const goodDrops =
-	{ code: "123eyedrops"
+const goodDrops = //done
+	{ code: "eyedrops2"
 	, description: "Some ordinary eyedrops"
 	, hint: "Marcellus can't see the evidence. Hint: If someone wants to get rid of something, the crypt is a good hiding place."
 	, inquire: (phase) =>
@@ -189,6 +190,34 @@ const mysteriousDoc =
 	}
 
 
+const rat = //done
+	{ code: "rat"
+	, description: "An innocent looking rat. Its eyes are strangely intense."
+	, inquire: (phase) =>
+		[ {text: "Oh that rat."}
+		, {text: "It loves sitting at my desk... always observing me..."}
+		, {text: "It's a good thing rats can't speak..."}
+		]
+	}
+
+
+const bread = //done
+	{ code: "bread"
+	, description: "A stale loaf of bread"
+	, inquire: (phase) =>
+		[ {text: "Not my cup of tea."}
+		]
+	}
+
+const soup = //done
+	{ code: "soup"
+	, description: "Somehow you willed a bowl of soup into existence"
+	, inquire: (phase) =>
+		[ {text: "Mmm... soup."}
+		]
+	}
+
+
 export const itemList =
 	[ poisonDrops
 	, goodDrops
@@ -203,6 +232,9 @@ export const itemList =
 	, scepterPage2
 	, magicBook
 	, mysteriousDoc
+	, rat
+	, bread
+	, soup
 	]
 
 

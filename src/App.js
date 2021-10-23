@@ -89,7 +89,7 @@ const ItemModal = ({phase, items, setItems, setDead}) => {
       	<div>
       		<div><Input className="intro" onChange={onChange} placeholder='Item Code' /></div>
 	        	<Divider hidden style={{marginTop:"-3px"}}/>
-	        <Button className="default spookButton" onClick={onSubmit} type="submit">Enter Item</Button>
+	        <Button className="default spookButton" onClick={() => {setComboText(""); onSubmit()}} type="submit">Enter Item</Button>
 	 	</div>
 	  }
 	  </div>
@@ -152,7 +152,7 @@ const HealthPotionModal = () => {
 }
 
 
-const PhaseModal = ({setPhase, setRooms}) => {
+const PhaseModal = ({setPhase, setRooms, closeMenu}) => {
 	const [open, setOpen] = useState(false)
 	const [val, setVal] = useState("")
 
@@ -163,6 +163,7 @@ const PhaseModal = ({setPhase, setRooms}) => {
 			setOpen(false)
 	  	setPhase(newPhase)
 	  	setRooms(new Set())
+	  	closeMenu()
   	}
 	}
 
@@ -189,13 +190,14 @@ const PhaseModal = ({setPhase, setRooms}) => {
     </Modal>
 }
 
-const RoomModal = ({Page, setPage}) => {
+const RoomModal = ({Page, setPage, closeMenu}) => {
 	const [open, setOpen] = useState(false)
 	const [val, setVal] = useState("")
 
 	const onSubmit = () => {
 		setPage(val)
 		setOpen(false)
+		closeMenu()
 	}
 
 		const onChange = (e) => {
@@ -217,6 +219,56 @@ const RoomModal = ({Page, setPage}) => {
       <div><Input className="intro" onChange={onChange} placeholder='Where are you?' /></div>
 	        <Divider hidden style={{marginTop:"-3px"}}/>
 	        <Button className="default spookButton" onClick={onSubmit} type="submit">Click Here</Button>
+      </Modal.Content>
+    </Modal>
+}
+
+
+const HealthModal = ({health, setHealth, closeMenu}) => {
+	const [open, setOpen] = useState(false)
+	const [val, setVal] = useState("")
+
+	const onAdd = () => {
+		const hp = parseInt(val)
+		if(!isNaN(hp)) {
+			setHealth(health + hp)
+			localStorage.setItem(health_key, health + hp)
+			setOpen(false)
+			closeMenu()
+		}
+	}
+
+
+	const onSub = () => {
+		const hp = parseInt(val)
+		if(!isNaN(hp)) {
+			setHealth(health - hp)
+			localStorage.setItem(health_key, health - hp)
+			setOpen(false)
+			closeMenu()
+		}
+	}
+
+		const onChange = (e) => {
+		setVal(e.target.value)
+	}
+
+
+	return <Modal
+	  className="glow"
+	  centered={false}
+      onClose={() => setOpen(false)}
+      onOpen={() => setOpen(true)}
+      open={open}
+      trigger={<div className="dropdownTitle" style={{ backgroundColor:"black", color:"white", padding:"10px"}} height="100%" width="100%">Update Health</div>}
+    >
+    <Icon style={{color:'white'}} name='close' onClick={()=>setOpen(false)}/>
+      <Modal.Header style={{ textAlign:"center", backgroundColor:"black", color:"white"}}><div className="modalTitle">Update Health</div></Modal.Header>
+      <Modal.Content style={{paddingBottom:"10xp", backgroundColor:"black", color:"white", textAlign: "center"}}>
+      <div><Input className="intro" onChange={onChange} placeholder='Points' /></div>
+	        <Divider hidden style={{marginTop:"-3px"}}/>
+	        <Button className="default spookButton" onClick={onAdd} type="submit">Add</Button>
+	        <Button className="default spookButton" onClick={onSub} type="submit">Subtract</Button>
       </Modal.Content>
     </Modal>
 }
@@ -273,6 +325,7 @@ export const GeneralHealthRules = ({phase}) =>
 				4th: Lose 20 health/Lose 10 ghost points. Drink twice <br/>
 				5th: Lose 30 health/Lose 15 ghost points. Drink thrice <br/>
 				Ghosts steal 5 points from each person they beat <br/>
+				<span style={{fontSize:"18px"}}>In case of a tie, both players get the points for that place and the next place is skipped - ie two players tie for first, third player still ranks third<br/></span>
 			</div>
 		else
 			return <div>
@@ -282,6 +335,7 @@ export const GeneralHealthRules = ({phase}) =>
 				4th: Lose 15 health/Lose 6 ghost points. Drink twice <br/>
 				5th: Lose 20 health/Lose 10 ghost points. Drink thrice <br/>
 				Ghosts steal 5 points from each person they beat <br/>
+				<span style={{fontSize:"18px"}}>In case of a tie, both players get the points for that place and the next place is skipped - ie two players tie for first, third player still ranks third<br/></span>
 			</div>
 	}
 
@@ -320,6 +374,7 @@ const App = () => {
   const [visitedRooms, setVisitedRooms] = useState(new Set())
   const [items, setItems] = useState(codesToItems())
   const [phase, setPhase] = useState(handleCode(localStorage.getItem(phase_key)));
+  const [health, setHealth] = useState(!isNaN(parseInt(localStorage.getItem(health_key))) ? parseInt(localStorage.getItem(health_key)) : 100);
   const [modalOpen, setModalOpen] = useState(phases.indexOf((phase)) < 0)
   const [dead, setDead] = useState("")
   const [returnToMain, setReturnToMain] = useState(false)
@@ -341,11 +396,12 @@ const App = () => {
   const closeMenu = () =>  setopen(false)
 
   const menuItems =
-  	[ <ItemModal setDead={setDead} phase={phase} key="itemModal" items={items} setItems={setItems} title = "Use Item"/>
-  	, <HealthPotionModal key="healthPotionModal" />
-  	, <RoomModal key="roomModal" Page={Page} setPage={updatePage}/>
-  	, <PhaseModal key="phaseModal" setPhase={setPhase} setRooms={setVisitedRooms}/>
-  	, <GhostModal key="ghostModal"/>
+  	[ <ItemModal setDead={setDead} phase={phase} key="itemModal" items={items} setItems={setItems} title = "Use Item" closeMenu={closeMenu}/>
+  	, <HealthPotionModal key="healthPotionModal" closeMenu={closeMenu}/>
+  	, <HealthModal health={health} setHealth={setHealth} closeMenu={closeMenu}/>
+  	, <RoomModal key="roomModal" Page={Page} setPage={updatePage} closeMenu={closeMenu}/>
+  	, <PhaseModal key="phaseModal" setPhase={setPhase} setRooms={setVisitedRooms} closeMenu={closeMenu}/>
+  	, <GhostModal key="ghostModal" closeMenu={closeMenu}/>
   	]
 
   if (dead)
@@ -364,7 +420,7 @@ const App = () => {
 		<Menu secondary style={{ marginTop: 0, marginBottom: 0 }}>
 			<Menu.Menu position="right">
     	      <div style={{paddingTop:"20px", fontSize:"20px"}} className="header">
-    			  Halloween 2021
+    			  Halloween 2021 - <span style={{fontSize:"10px"}}>Points: {health}</span>
 	      	</div>
 			</Menu.Menu>
             <Menu.Item position="right" style={{ color: "white" }} icon="bars" onClick={toggleMenu} />

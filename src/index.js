@@ -43,11 +43,11 @@ export const sceneList = [
   //{name:"Begin", render: Begin, path: paths.begin, music: intro},
   //{name:"Witch", render: Witch, path: paths.witch, music: witchSong},
   {name:"PumpkinPatch", render: () => ({code,room}) => <MonsterPanel code={code} room={room} image={skeleton} dialogue={Dialogues.pumpkin(code, room)}
-    name="PumpkinPatch" color="#211100"/>, path: paths.skeleton, music: skeletonSong},
+    name="PumpkinPatch" color="#009921"/>, path: paths.skeleton, music: skeletonSong},
 
   {name:"HauntedForest", render: () => ({code,room}) => <MonsterPanel code={code} dialogue={Dialogues.forest(code,room)}
     music="https://www.youtube.com/watch?v=Z5xdQIXzIIg"
-    name="HauntedForest" image={spider} color="#4B0082"/>, path: paths.spider, music: forestSong},
+    name="HauntedForest" image={spider} color="#000c65"/>, path: paths.spider, music: forestSong},
 
   {name:"Oracle", render: () => ({code,room}) => <MonsterPanel code={code} dialogue={Dialogues.oracle(code,room)}
     music={oracleSong}
@@ -55,11 +55,11 @@ export const sceneList = [
 
   {name:"MainRoom", render: () => ({code,room}) => <MonsterPanel code={code} dialogue={Dialogues.mainroom(code,room)}
     music="https://www.youtube.com/watch?v=Z5xdQIXzIIg"
-    name="MainRoom" image={oracle} color="#4B0082"/>, path: paths.spider, music: ghostSong},
+    name="MainRoom" image={oracle} color=""/>, path: paths.spider, music: ghostSong},
 
   {name:"Lounge", render: () => ({code,room}) => <MonsterPanel code={code} dialogue={Dialogues.lounge(code,room)}
     music="https://www.youtube.com/watch?v=Z5xdQIXzIIg"
-    name="Lounge" image={oracle} color="#4B0082"/>, path: paths.spider, music:loungeSong },
+    name="Lounge" image={oracle} color="#6d0700"/>, path: paths.spider, music:loungeSong },
 
   {name:"Vampire", render: () => ({code,room}) => <MonsterPanel code={code} dialogue={Dialogues.vampire(code, room)}
  name="Vampire" image={vampire} color="#6e0000"/>, path: paths.vampire, music: vampireSong}

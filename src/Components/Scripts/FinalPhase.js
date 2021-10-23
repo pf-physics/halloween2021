@@ -37,7 +37,7 @@ const dialogue = (code) => [
 	{text: "...", img: cousin2},
 	{text: "...", img: spider},
 	{text: "ok", img: cousin2},
-	{text: "You must take the cursed sand and pour a bunch of dragon drool in the middle. Then add a pile of dried seamonster tears on top and set it all on fire.", img: cousin2},
+	{text: "You must take the cursed sand and pour a bottle of dragon drool in the middle. Then add a pile of dried seamonster tears on top and set it all on fire.", img: cousin2},
 	{text: "Shall we eat him now?", img: spider},
 	{text: "Well, he's still family..."},
 	{text: "I'm taking you out of the will though!"},
