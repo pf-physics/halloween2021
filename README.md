@@ -17,3 +17,5 @@ pumpkinpatch
 ## Items codes:
 eyedrops, houseinsurance, will1, eyedrops2, flyer, weirdmail, scepterm, letter1, fertilizer, scepterpage, scepterinfo, magicbook, whitepage, rat, bread, soup
 
+### Other:
+The curse is concealed in a box of cookies
