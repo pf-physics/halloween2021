@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/halloween2021/static/css/main.1af0ad70.chunk.css",
-    "main.js": "/halloween2021/static/js/main.544e0d62.chunk.js",
-    "main.js.map": "/halloween2021/static/js/main.544e0d62.chunk.js.map",
+    "main.js": "/halloween2021/static/js/main.6048a51b.chunk.js",
+    "main.js.map": "/halloween2021/static/js/main.6048a51b.chunk.js.map",
     "runtime-main.js": "/halloween2021/static/js/runtime-main.6dd9221b.js",
     "runtime-main.js.map": "/halloween2021/static/js/runtime-main.6dd9221b.js.map",
     "static/css/2.29fb477d.chunk.css": "/halloween2021/static/css/2.29fb477d.chunk.css",
     "static/js/2.32239e5b.chunk.js": "/halloween2021/static/js/2.32239e5b.chunk.js",
     "static/js/2.32239e5b.chunk.js.map": "/halloween2021/static/js/2.32239e5b.chunk.js.map",
     "index.html": "/halloween2021/index.html",
-    "precache-manifest.82e993d3b908d84428e7ac3e100ac6bd.js": "/halloween2021/precache-manifest.82e993d3b908d84428e7ac3e100ac6bd.js",
+    "precache-manifest.5f6f8ca5659470a9a3321c61429fd2ff.js": "/halloween2021/precache-manifest.5f6f8ca5659470a9a3321c61429fd2ff.js",
     "service-worker.js": "/halloween2021/service-worker.js",
     "static/css/2.29fb477d.chunk.css.map": "/halloween2021/static/css/2.29fb477d.chunk.css.map",
     "static/css/main.1af0ad70.chunk.css.map": "/halloween2021/static/css/main.1af0ad70.chunk.css.map",
@@ -47,6 +47,6 @@
     "static/css/2.29fb477d.chunk.css",
     "static/js/2.32239e5b.chunk.js",
     "static/css/main.1af0ad70.chunk.css",
-    "static/js/main.544e0d62.chunk.js"
+    "static/js/main.6048a51b.chunk.js"
   ]
 }

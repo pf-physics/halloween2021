@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "16f5157d1428770d6aaea64bffe7a553",
+    "revision": "8d687eac8e4aa434e08c9e22925985ef",
     "url": "/halloween2021/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/halloween2021/static/css/2.29fb477d.chunk.css"
   },
   {
-    "revision": "9f52e3d69e2e0787160b",
+    "revision": "a2c92cdc4e7345e95b47",
     "url": "/halloween2021/static/css/main.1af0ad70.chunk.css"
   },
   {
@@ -20,8 +20,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/halloween2021/static/js/2.32239e5b.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "9f52e3d69e2e0787160b",
-    "url": "/halloween2021/static/js/main.544e0d62.chunk.js"
+    "revision": "a2c92cdc4e7345e95b47",
+    "url": "/halloween2021/static/js/main.6048a51b.chunk.js"
   },
   {
     "revision": "36816eabab18feff0c28",
