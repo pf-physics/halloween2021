@@ -153,7 +153,7 @@ const HealthPotionModal = () => {
 }
 
 
-const PhaseModal = ({setPhase, setRooms, closeMenu}) => {
+const PhaseModal = ({setPhase, setRooms, closeMenu, setPage, scene}) => {
 	const [open, setOpen] = useState(false)
 	const [val, setVal] = useState("")
 
@@ -164,6 +164,8 @@ const PhaseModal = ({setPhase, setRooms, closeMenu}) => {
 			setOpen(false)
 	  	setPhase(newPhase)
 	  	setRooms(new Set())
+	  	// Refresh page
+	  	setPage(scene.render)
 	  	closeMenu()
   	}
 	}
@@ -401,7 +403,7 @@ const App = () => {
   	, <HealthPotionModal key="healthPotionModal" closeMenu={closeMenu}/>
   	, <HealthModal health={health} setHealth={setHealth} closeMenu={closeMenu}/>
   	, <RoomModal key="roomModal" Page={Page} setPage={updatePage} closeMenu={closeMenu}/>
-  	, <PhaseModal key="phaseModal" setPhase={setPhase} setRooms={setVisitedRooms} closeMenu={closeMenu}/>
+  	, <PhaseModal key="phaseModal" setPhase={setPhase} setRooms={setVisitedRooms} closeMenu={closeMenu} setPage={setPage} scene={Page}/>
   	, <GhostModal key="ghostModal" closeMenu={closeMenu}/>
   	]
 
